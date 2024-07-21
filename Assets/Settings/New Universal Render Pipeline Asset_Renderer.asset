@@ -75,6 +75,6 @@ MonoBehaviour:
     color: {r: 0.40132898, g: 0.7477716, b: 0.8396226, a: 0}
     FogDensity: 0
     alpha: 0.322
-    refraction: 0.5
+    refraction: 0.6
     normalmap: {fileID: 2800000, guid: 08ef20a01c156e1428ca81211ca1275d, type: 3}
     UV: {x: 1, y: 1, z: 0.2, w: 0.1}
