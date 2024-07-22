@@ -6,12 +6,15 @@ namespace UdoGames.NextGenDev
 {
     public class CurrencyManager : MonoBehaviour
     {
+        public static CurrencyManager Instance { get; private set;}
+
         [SerializeField] private Int _currentGold;
 
         private const string GOLD_SAVE_KEY = "playerGold";
 
         private void Awake()
         {
+            Instance = this;
             LoadGold();
         }
 

@@ -6,7 +6,7 @@ using UnityEngine;
 namespace UdoGames.NextGenDev
 {
     [CreateAssetMenu(menuName = "Variables/Int")]
-    public class Int : ScriptableObject
+    public class Int : BaseCustomVariable
     {
         public Action<int> OnValueChanged;
         [SerializeField] private int _value;
@@ -18,6 +18,11 @@ namespace UdoGames.NextGenDev
                 _value = value;
                 OnValueChanged?.Invoke(_value);
             }
+        }
+
+        public override string GetText()
+        {
+            return _value.ToString();
         }
     }
 }
