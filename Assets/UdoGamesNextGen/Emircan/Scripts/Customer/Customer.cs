@@ -9,7 +9,11 @@ namespace UdoGames.NextGenDev
     {
         [SerializeField] private GameObject[] _gfxs;
 
-        private void OnEnable() {
+        int estimatedPrice;
+        int customerOffer;
+
+        private void OnEnable()
+        {
             SetRandomGFX();
         }
 
@@ -32,15 +36,86 @@ namespace UdoGames.NextGenDev
             DealManager.Instance.StartDeal(this);
         }
 
-        public int GivePrice(int estimatedPrice, int dealPhase)
+        public int GivePrice(int estimatedPrice)
         {
-            switch (dealPhase)
+            this.estimatedPrice = estimatedPrice;
+            float priceMultiplier = Random.Range(0.9f, 1.1f);
+            customerOffer = (int)(estimatedPrice * priceMultiplier);
+            return customerOffer;
+        }
+
+        public void GiveOffer(int playerOffer, int phase)
+        {
+            if (phase == 0)
             {
-                case 0:
-                    return estimatedPrice;
-                default:
-                    return estimatedPrice;
+                int min = (int)(customerOffer * 1.1f);
+                int max = (int)(customerOffer * 1.5f);
+                if (playerOffer <= min)
+                {
+                    DealManager.Instance.AcceptOffer(playerOffer);
+                }
+                else if (playerOffer <= max)
+                {
+                    bool acceptOffer = Random.Range(0, 2) == 0;
+                    if (acceptOffer)
+                    {
+                        DealManager.Instance.AcceptOffer(playerOffer);
+                    }
+                    else
+                    {
+                        int customerNewOffer = (int)(playerOffer * 0.95f);
+                        DealManager.Instance.CustomerOffers(customerNewOffer);
+                    }
+                }
+                else
+                {
+                    int randomness = Random.Range(0, 10);
+                    if (randomness <= 1)
+                    {
+                        int customerNewOffer = (int)(estimatedPrice * 1.1f);
+                        DealManager.Instance.CustomerOffers(customerNewOffer);
+                    }
+                    else if (randomness <= 4)
+                    {
+                        DealManager.Instance.AcceptOffer(playerOffer);
+                    }
+                    else
+                    {
+                        RejectOfferFinishDeal();
+                    }
+                }
             }
+            else if (phase == 1)
+            {
+                if (playerOffer <= (int)(customerOffer * 1.05f))
+                {
+                    bool acceptOffer = Random.Range(0, 10) > 2;
+                    if (acceptOffer)
+                    {
+                        DealManager.Instance.AcceptOffer(playerOffer);
+                    }
+                    else
+                    {
+                        RejectOfferFinishDeal();
+                    }
+                }
+            }
+        }
+
+        public void OnRejected()
+        {
+            CustomerManager.Instance.RemoveCustomer();
+            transform.position = Vector3.zero;
+            gameObject.SetActive(false);
+        }
+
+        private void RejectOfferFinishDeal()
+        {
+            CustomerManager.Instance.RemoveCustomer();
+            Debug.Log("Customer leaves");
+            gameObject.SetActive(false);
+            transform.position = Vector3.zero;
+            DealManager.Instance.OnCustomerLeaves();
         }
     }
 }

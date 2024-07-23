@@ -20,6 +20,10 @@ namespace UdoGames.NextGenDev
             LoadDays();
         }
 
+        /* private void Start() {
+            StartSellPhase();
+        } */
+
         private void LoadDays()
         {
             _day.Value = PlayerPrefs.GetInt(DAY_SAVE_KEY, 1);
@@ -34,6 +38,7 @@ namespace UdoGames.NextGenDev
 
         public void StartSellPhase()
         {
+            CustomerManager.Instance.CreateCustomers();
             DealManager.Instance.CheckForCustomer();
         }
 
