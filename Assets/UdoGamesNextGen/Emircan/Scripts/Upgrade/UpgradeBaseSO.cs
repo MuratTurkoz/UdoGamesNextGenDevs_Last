@@ -19,7 +19,7 @@ public abstract class UpgradeBaseSO : ScriptableObject
 
     public void ReducePrice()
     {
-        CurrencyManager.Instance.ReduceGold(Price);
+        CurrencyManager.Instance.ReduceGold(Price, "Upgrade " + upgradeName);
     }
 
     public abstract void Upgrade();

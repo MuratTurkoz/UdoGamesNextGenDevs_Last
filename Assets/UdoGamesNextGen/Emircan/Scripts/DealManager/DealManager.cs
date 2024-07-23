@@ -130,7 +130,7 @@ namespace UdoGames.NextGenDev
 
         private void AcceptOffer()
         {
-            CurrencyManager.Instance.AddGold(_customerOffer);
+            CurrencyManager.Instance.AddGold(_customerOffer, "Sell " + _currentItem.name);
             _inventory.RemoveItem(_currentItem);
             CloseDealPanel();
             CustomerManager.Instance.RemoveCustomer();
@@ -146,7 +146,7 @@ namespace UdoGames.NextGenDev
 
         public void AcceptOffer(int offer)
         {
-            CurrencyManager.Instance.AddGold(offer);
+            CurrencyManager.Instance.AddGold(offer, "Sell " + _currentItem.name);
             _inventory.RemoveItem(_currentItem);
             CloseDealPanel();
             CustomerManager.Instance.RemoveCustomer();

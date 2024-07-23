@@ -25,6 +25,7 @@ public class UIManager : MonoBehaviour
 
     private void Awake() {
         Instance = this;
+        _dailyChangeRowList = new List<DailyChangeRow>();
     }
 
     private void Start() {
@@ -86,23 +87,40 @@ public class UIManager : MonoBehaviour
     private void EndDay()
     {
         _endDayBtn.gameObject.SetActive(false);
-        ShowDailyEarnings();
+        /* ShowDailyEarnings(); */
+        DayManager.Instance.EndDay();
     }
 
-    private void ShowDailyEarnings()
+    [SerializeField] private Transform _dailyContentParent;
+    [SerializeField] private DailyChangeRow _dailyChangeRowPrefab;
+    private List<DailyChangeRow> _dailyChangeRowList;
+
+    public void ShowDailyEarnings()
     {
         _gameStartBtnsParent.SetActive(false);
+        foreach (var daily in CurrencyManager.Instance.PopCurrencyLogs())
+        {
+            var row = Instantiate(_dailyChangeRowPrefab, _dailyContentParent);
+            row.InitRow(daily);
+            _dailyChangeRowList.Add(row);
+        }
         _dailyEarningsPanel.SetActive(true);
     }
 
     private void SkipDailyEarnings()
     {
         _dailyEarningsPanel.SetActive(false);
-        DayManager.Instance.EndDay();
+        /* DayManager.Instance.EndDay(); */
+        ResetUIToStart();
     }
 
     public void ResetUIToStart()
     {
+        foreach (var row in _dailyChangeRowList)
+        {
+            Destroy(row);
+        }
+        _dailyChangeRowList.Clear();
         _playerShopPanel.SetActive(true);
         _startDayBtn.gameObject.SetActive(false);
         _endDayBtn.gameObject.SetActive(false);
