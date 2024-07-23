@@ -10,6 +10,8 @@ namespace UdoGames.NextGenDev
 
         [SerializeField] private Int _currentGold;
 
+        public int Gold => _currentGold.Value;
+
         private const string GOLD_SAVE_KEY = "playerGold";
 
         private void Awake()

@@ -211,7 +211,7 @@ namespace UdoGames.NextGenDev
         public void CustomerOffers(int customerOffer)
         {
             _customerOffer = customerOffer;
-            _btnDealPriceTMP.SetText(NumberConverter.ConvertToString(_customerOffer));
+            ShowFirstPrice(customerOffer);
             ShowDealOptions();
         }
 

@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set;}
 
+    [SerializeField] private GameObject _upgradePanel;
     [SerializeField] private GameObject _playerShopPanel;
     [SerializeField] private GameObject _oceanPanel;
     [SerializeField] private Button _showUpgradeBtn;
@@ -20,6 +21,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private Button _returnShopBtn;
     [SerializeField] private Button _closeDailyEarningsBtn;
+    [SerializeField] private Button _closeUpgradePanelBtn;
 
     private void Awake() {
         Instance = this;
@@ -31,12 +33,18 @@ public class UIManager : MonoBehaviour
         _startDayBtn.onClick.AddListener(StartSellPhase);
         _endDayBtn.onClick.AddListener(EndDay);
         _returnShopBtn.onClick.AddListener(ReturnShop);
+        _closeUpgradePanelBtn.onClick.AddListener(CloseUpgradePanel);
         _closeDailyEarningsBtn.onClick.AddListener(SkipDailyEarnings);
 
         _oceanPanel.SetActive(false);
         _playerShopPanel.SetActive(true);
         _startDayBtn.gameObject.SetActive(false);
         _endDayBtn.gameObject.SetActive(false);
+    }
+
+    private void CloseUpgradePanel()
+    {
+        _upgradePanel.SetActive(false);
     }
 
     private void StartDive()
@@ -55,7 +63,7 @@ public class UIManager : MonoBehaviour
 
     private void ShowUpgradePanel()
     {
-
+        _upgradePanel.SetActive(true);
     }
 
     private void StartSellPhase()
