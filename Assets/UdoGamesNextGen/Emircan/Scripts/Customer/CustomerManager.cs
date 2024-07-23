@@ -9,7 +9,9 @@ namespace UdoGames.NextGenDev
         [SerializeField] private Transform _dealStandingTransform;
         public static CustomerManager Instance { get; private set; }
 
-        [SerializeField] private Customer customer;
+        [SerializeField] private Customer _customerPrefab;
+
+        private Customer customer;
 
         private List<Customer> _customers;
 
@@ -17,15 +19,14 @@ namespace UdoGames.NextGenDev
         {
             Instance = this;
             _customers = new List<Customer>();
-            _customers.Add(customer);
         }
 
         public void CreateCustomers()
         {
             int itemCount = FindObjectOfType<BaseInventory>().ItemCount();
-            for (int i = 0; i < itemCount - 1; i++)
+            for (int i = 0; i < itemCount; i++)
             {
-                _customers.Add(Instantiate(customer));
+                _customers.Add(Instantiate(_customerPrefab));
                 _customers[_customers.Count -1].transform.position = Vector3.zero;
                 _customers[_customers.Count -1].gameObject.SetActive(false);
             }
@@ -33,9 +34,9 @@ namespace UdoGames.NextGenDev
 
         public void RemoveCustomer()
         {
-            customer.gameObject.SetActive(false);
             customer.transform.position = Vector3.zero;
             _customers.Remove(customer);
+            Destroy(customer.gameObject);
         }
 
         public void SendCustomer()

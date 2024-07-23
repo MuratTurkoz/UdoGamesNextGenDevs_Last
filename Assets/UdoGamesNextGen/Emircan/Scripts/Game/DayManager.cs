@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,9 @@ namespace UdoGames.NextGenDev
         private const string DAY_SAVE_KEY = "daySave";
         private const string WEEK_SAVE_KEY = "weekSave";
 
+        public Action OnDayEnd;
+        public Action OnWeekEnd;
+
         private void Awake()
         {
             Instance = this;
@@ -27,7 +31,7 @@ namespace UdoGames.NextGenDev
         private void LoadDays()
         {
             _day.Value = PlayerPrefs.GetInt(DAY_SAVE_KEY, 1);
-            _weeks.Value = PlayerPrefs.GetInt(WEEK_SAVE_KEY, 0);
+            _weeks.Value = PlayerPrefs.GetInt(WEEK_SAVE_KEY, 1);
         }
 
         private void SaveDays()
@@ -42,9 +46,25 @@ namespace UdoGames.NextGenDev
             DealManager.Instance.CheckForCustomer();
         }
 
-        private void EndDay()
+        public void EndDay()
         {
-            
+            OnDayEnd?.Invoke();
+            _day.Value++;
+            if (_day.Value % 7 == 0)
+            {
+                EndWeek();
+            }
+            else
+            {
+                UIManager.Instance.ResetUIToStart();
+            }
+        }
+
+        private void EndWeek()
+        {
+            OnWeekEnd?.Invoke();
+            _weeks.Value++;
+            UIManager.Instance.ResetUIToStart();
         }
     }
 }

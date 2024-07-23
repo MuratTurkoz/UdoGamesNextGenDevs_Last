@@ -189,6 +189,10 @@ namespace UdoGames.NextGenDev
             {
                 CustomerManager.Instance.SendCustomer();
             }
+            else
+            {
+                ShowEndDay();
+            }
         }
 
         public void OnCustomerLeaves()
@@ -213,7 +217,8 @@ namespace UdoGames.NextGenDev
 
         private void ShowEndDay()
         {
-            
+            UIManager.Instance.ShowEndDayBtn();
+            UIManager.Instance.ShowBtns();
         }
     }
 }
