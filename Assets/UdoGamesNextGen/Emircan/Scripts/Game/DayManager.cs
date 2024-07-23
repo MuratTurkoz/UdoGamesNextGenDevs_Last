@@ -56,15 +56,20 @@ namespace UdoGames.NextGenDev
             }
             else
             {
-                UIManager.Instance.ResetUIToStart();
+                UIManager.Instance.ShowDailyEarnings();
+                /* UIManager.Instance.ResetUIToStart(); */
             }
         }
+
+        private int rent = 300;
 
         private void EndWeek()
         {
             OnWeekEnd?.Invoke();
             _weeks.Value++;
-            UIManager.Instance.ResetUIToStart();
+            CurrencyManager.Instance.ReduceGold(rent, "Rent");
+            UIManager.Instance.ShowDailyEarnings();
+            /* UIManager.Instance.ResetUIToStart(); */
         }
     }
 }

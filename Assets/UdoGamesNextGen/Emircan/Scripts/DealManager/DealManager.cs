@@ -27,6 +27,7 @@ namespace UdoGames.NextGenDev
 
         [Header("UI Customer")]
         [SerializeField] private TextMeshProUGUI _customerOfferTMP;
+        [SerializeField] private TextMeshProUGUI _customerDialogTMP;
 
         [Header("UI Item")]
         [SerializeField] private TextMeshProUGUI _itemNameTMP;
@@ -78,12 +79,15 @@ namespace UdoGames.NextGenDev
             CustomerManager.Instance.SendCustomer();
         }
 
+        [SerializeField] private GameObject _dealItemPanel;
+
         public void StartDeal(Customer customer)
         {
             _dealPhase = 0;
             _currentCustomer = customer;
             _currentItem = _inventory.GetRandomItem();
             _playerOffer = _currentItem.EstimatedPrice;
+            _dealItemPanel.SetActive(true);
             ShowDealPanel();
             _customerOffer = _currentCustomer.GivePrice(_currentItem.EstimatedPrice);
             ShowFirstPrice(_customerOffer);
@@ -112,6 +116,13 @@ namespace UdoGames.NextGenDev
             _dealPanel.SetActive(false);
         }
 
+        public void CloseOtherThanCustomer()
+        {
+            _dealItemPanel.SetActive(false);
+            _dealOptions.SetActive(false);
+            _playerOfferPanel.SetActive(false);
+        }
+
         private void ShowFirstPrice(int givenPrice)
         {
             _customerOfferTMP.SetText(NumberConverter.ConvertToString(givenPrice));
@@ -130,10 +141,19 @@ namespace UdoGames.NextGenDev
 
         private void AcceptOffer()
         {
-            CurrencyManager.Instance.AddGold(_customerOffer);
+            CurrencyManager.Instance.AddGold(_customerOffer, "Sell " + _currentItem.name);
             _inventory.RemoveItem(_currentItem);
-            CloseDealPanel();
+            //CloseDealPanel();
+            CloseOtherThanCustomer();
+            /* CustomerManager.Instance.RemoveCustomer(); */
+            _customerDialogTMP.SetText("Anlaştık");
+            Invoke(nameof(OnDealEnd), 2f);
+        }
+
+        private void OnDealEnd()
+        {
             CustomerManager.Instance.RemoveCustomer();
+            CloseDealPanel();
             if (_inventory.ItemCount() > 0 && CustomerManager.Instance.CustomerCount() > 0)
             {
                 CustomerManager.Instance.SendCustomer();
@@ -146,18 +166,12 @@ namespace UdoGames.NextGenDev
 
         public void AcceptOffer(int offer)
         {
-            CurrencyManager.Instance.AddGold(offer);
+            CurrencyManager.Instance.AddGold(offer, "Sell " + _currentItem.name);
             _inventory.RemoveItem(_currentItem);
-            CloseDealPanel();
-            CustomerManager.Instance.RemoveCustomer();
-            if (_inventory.ItemCount() > 0)
-            {
-                CustomerManager.Instance.SendCustomer();
-            }
-            else
-            {
-                ShowEndDay();
-            }
+            //CloseDealPanel();
+            CloseOtherThanCustomer();
+            _customerDialogTMP.SetText("Anlaştık he");
+            Invoke(nameof(OnDealEnd), 2f);
         }
 
         private void GiveNewOffer()
@@ -182,41 +196,35 @@ namespace UdoGames.NextGenDev
 
         private void RejectOfferEndDeal()
         {
-            Debug.Log("You rejected");
             _currentCustomer.OnRejected();
-            CloseDealPanel();
-            if (_inventory.ItemCount() > 0 && CustomerManager.Instance.CustomerCount() > 0)
-            {
-                CustomerManager.Instance.SendCustomer();
-            }
-            else
-            {
-                ShowEndDay();
-            }
+        }
+
+        public void SetCustomerDialogTMP(string text)
+        {
+            _customerDialogTMP.SetText(text);
         }
 
         public void OnCustomerLeaves()
         {
+            OnEndByReject();
+        }
+
+        public void OnEndByReject()
+        {
             CloseDealPanel();
-            if (_inventory.ItemCount() > 0 && CustomerManager.Instance.CustomerCount() > 0)
-            {
-                CustomerManager.Instance.SendCustomer();
-            }
-            else
-            {
-                ShowEndDay();
-            }
+            OnDealEnd();
         }
 
         public void CustomerOffers(int customerOffer)
         {
             _customerOffer = customerOffer;
-            _btnDealPriceTMP.SetText(NumberConverter.ConvertToString(_customerOffer));
+            ShowFirstPrice(customerOffer);
             ShowDealOptions();
         }
 
         private void ShowEndDay()
         {
+            CloseDealPanel();
             UIManager.Instance.ShowEndDayBtn();
             UIManager.Instance.ShowBtns();
         }

@@ -34,7 +34,6 @@ namespace UdoGames.NextGenDev
 
         public void RemoveCustomer()
         {
-            customer.transform.position = Vector3.zero;
             _customers.Remove(customer);
             Destroy(customer.gameObject);
         }
