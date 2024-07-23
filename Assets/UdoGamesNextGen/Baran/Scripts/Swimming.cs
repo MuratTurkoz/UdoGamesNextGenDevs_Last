@@ -8,6 +8,8 @@ public class Swimming : MonoBehaviour
 {
 
     public float swimSpeed = 5f;
+    public float amplitude = 0.25f;
+    public float frequency = 1.0f;
     private bool isSwimming = false;
     private Rigidbody myRigidBody;
     public Animator myAnimator;
@@ -51,8 +53,7 @@ public class Swimming : MonoBehaviour
             }
 
             // No player input, apply vertical resonance movement
-            float amplitude = 0.25f; // Adjust as needed
-            float frequency = 1.0f; // Adjust as needed
+            
 
             float resonanceY = amplitude * Mathf.Sin(Time.time * frequency);
             targetVelocity = new UnityEngine.Vector3(0, resonanceY, 0);
