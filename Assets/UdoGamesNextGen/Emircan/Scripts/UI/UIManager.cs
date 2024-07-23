@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UdoGames.NextGenDev;
 using Unity.Collections;
 using UnityEngine;
@@ -22,6 +23,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button _returnShopBtn;
     [SerializeField] private Button _closeDailyEarningsBtn;
     [SerializeField] private Button _closeUpgradePanelBtn;
+    [SerializeField] private Button _settingsBtn;
 
     private void Awake() {
         Instance = this;
@@ -36,11 +38,30 @@ public class UIManager : MonoBehaviour
         _returnShopBtn.onClick.AddListener(ReturnShop);
         _closeUpgradePanelBtn.onClick.AddListener(CloseUpgradePanel);
         _closeDailyEarningsBtn.onClick.AddListener(SkipDailyEarnings);
+        _settingsBtn.onClick.AddListener(ToggleSettings);
+        _toggleSoundBtn.onClick.AddListener(ToggleSound);
+
+        bool isOn = PlayerPrefs.GetInt("soundIsOn", 1) == 1;
+        AudioListener.volume = isOn ? 1 : 0;
+        _soundBtnTMP.SetText(!isOn ? "Sound Off" : "Sound On");
 
         _oceanPanel.SetActive(false);
         _playerShopPanel.SetActive(true);
         _startDayBtn.gameObject.SetActive(false);
         _endDayBtn.gameObject.SetActive(false);
+    }
+
+    private void ToggleSound()
+    {
+        bool isOn = AudioListener.volume == 1;
+        AudioListener.volume = isOn ? 0 : 1;
+        PlayerPrefs.SetInt("soundIsOn", (int)AudioListener.volume);
+        _soundBtnTMP.SetText(isOn ? "Sound Off" : "Sound On");
+    }
+
+    private void ToggleSettings()
+    {
+        _settingsPanel.SetActive(!_settingsPanel.activeSelf);
     }
 
     private void CloseUpgradePanel()
@@ -90,6 +111,10 @@ public class UIManager : MonoBehaviour
         /* ShowDailyEarnings(); */
         DayManager.Instance.EndDay();
     }
+
+    [SerializeField] private GameObject _settingsPanel;
+    [SerializeField] private Button _toggleSoundBtn;
+    [SerializeField] private TextMeshProUGUI _soundBtnTMP;
 
     [SerializeField] private Transform _dailyContentParent;
     [SerializeField] private DailyChangeRow _dailyChangeRowPrefab;
