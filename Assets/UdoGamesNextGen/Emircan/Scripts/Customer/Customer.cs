@@ -104,17 +104,29 @@ namespace UdoGames.NextGenDev
 
         public void OnRejected()
         {
-            CustomerManager.Instance.RemoveCustomer();
-            transform.position = Vector3.zero;
+            DealManager.Instance.SetCustomerDialogTMP("Sen bilirsin!");
+            DealManager.Instance.CloseOtherThanCustomer();
+            Invoke(nameof(Rejected), 2f);
+        }
+
+        private void Rejected()
+        {
             gameObject.SetActive(false);
+            /* CustomerManager.Instance.RemoveCustomer(); */
+            DealManager.Instance.OnEndByReject();
         }
 
         private void RejectOfferFinishDeal()
         {
-            CustomerManager.Instance.RemoveCustomer();
-            Debug.Log("Customer leaves");
+            DealManager.Instance.SetCustomerDialogTMP("Abartma bu fiyata olmaz!");
+            DealManager.Instance.CloseOtherThanCustomer();
+            Invoke(nameof(Leave), 2f);
+        }
+
+        private void Leave()
+        {
+            /* CustomerManager.Instance.RemoveCustomer(); */
             gameObject.SetActive(false);
-            transform.position = Vector3.zero;
             DealManager.Instance.OnCustomerLeaves();
         }
     }

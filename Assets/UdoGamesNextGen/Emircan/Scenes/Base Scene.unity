@@ -2946,9 +2946,11 @@ MonoBehaviour:
   _dealPanel: {fileID: 1930850246}
   _playerOfferPanel: {fileID: 165243074}
   _customerOfferTMP: {fileID: 345330663}
+  _customerDialogTMP: {fileID: 1902818968}
   _itemNameTMP: {fileID: 288493581}
   _itemEstimatedPriceTMP: {fileID: 935574165}
   _itemIcon: {fileID: 1513088438}
+  _dealItemPanel: {fileID: 1297603256}
 --- !u!1 &710180263
 GameObject:
   m_ObjectHideFlags: 0
