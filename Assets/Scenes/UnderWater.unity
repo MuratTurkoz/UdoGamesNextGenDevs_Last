@@ -8298,6 +8298,8 @@ MonoBehaviour:
   frequency: 1
   myAnimator: {fileID: 516559509}
   fixedJoystick: {fileID: 1697415496}
+  turnSpeed: 5
+  playerBody: {fileID: 516559507}
 --- !u!54 &1920797010
 Rigidbody:
   m_ObjectHideFlags: 0
