@@ -125,7 +125,7 @@ namespace UdoGames.NextGenDev
 
         private void ShowFirstPrice(int givenPrice)
         {
-            _customerOfferTMP.SetText(NumberConverter.ConvertToString(givenPrice));
+            _customerOfferTMP.SetText("Customer Offers: " + NumberConverter.ConvertToString(givenPrice));
             _btnDealPriceTMP.SetText(NumberConverter.ConvertToString(givenPrice));
         }
 
