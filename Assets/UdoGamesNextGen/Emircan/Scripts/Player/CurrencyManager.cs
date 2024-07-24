@@ -23,6 +23,8 @@ namespace UdoGames.NextGenDev
 
         [SerializeField] private Int _currentGold;
 
+        private MoneyIconManager _moneyIconManager;
+
         public int Gold => _currentGold.Value;
 
         private const string GOLD_SAVE_KEY = "playerGold";
@@ -33,6 +35,7 @@ namespace UdoGames.NextGenDev
         {
             Instance = this;
             _currencyLogs = new List<CurrencyLog>();
+            _moneyIconManager = FindObjectOfType<MoneyIconManager>();
             LoadGold();
         }
 
@@ -56,7 +59,15 @@ namespace UdoGames.NextGenDev
         public void AddGold(int delta, string log)
         {
             _currencyLogs.Add(new CurrencyLog(log, delta));
-            _currentGold.Value += delta;
+            deltaMoney = delta;
+            _moneyIconManager.ShowMoneyIcons(UpdateMoney);
+        }
+
+        private int deltaMoney;
+
+        private void UpdateMoney()
+        {
+            _currentGold.Value += deltaMoney;
         }
 
         public void ReduceGold(int delta, string log)

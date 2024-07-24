@@ -74,6 +74,7 @@ public class UIManager : MonoBehaviour
         _diveBtn.gameObject.SetActive(false);
         _playerShopPanel.SetActive(false);
         _oceanPanel.SetActive(true);
+        GameSceneManager.Instance.ChangeScene(GameScene.Ocean);
     }
 
     private void ReturnShop()
@@ -83,6 +84,7 @@ public class UIManager : MonoBehaviour
         _startDayBtn.gameObject.SetActive(true);
 
         CameraController.Instance.SetCameraTopdown();
+        GameSceneManager.Instance.ChangeScene(GameScene.Market);
     }
 
     private void ShowUpgradePanel()

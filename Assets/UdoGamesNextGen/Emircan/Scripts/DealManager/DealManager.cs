@@ -11,7 +11,7 @@ namespace UdoGames.NextGenDev
     {
         public static DealManager Instance { get; private set; }
 
-        [SerializeField] private BaseInventory _inventory;
+        private BaseInventory _inventory;
 
         [Header("UI")]
         [SerializeField] private TextMeshProUGUI _playerDealTMP;
@@ -45,6 +45,7 @@ namespace UdoGames.NextGenDev
             _newOfferBtn.onClick.AddListener(GiveNewOffer);
             _upperDealBtn.onClick.AddListener(UpperDeal);
             _lowerDealBtn.onClick.AddListener(LowerDeal);
+            _inventory = FindObjectOfType<BaseInventory>();
         }
 
         private void LowerDeal()
@@ -101,9 +102,10 @@ namespace UdoGames.NextGenDev
 
         private void ShowDealPanel()
         {
+            _customerOfferTMP.gameObject.SetActive(true);
             _playerDealTMP.SetText(NumberConverter.ConvertToString(_currentItem.EstimatedPrice));
 
-            _itemEstimatedPriceTMP.SetText(NumberConverter.ConvertToString(_currentItem.EstimatedPrice));
+            _itemEstimatedPriceTMP.SetText("Estimated Price: " + NumberConverter.ConvertToString(_currentItem.EstimatedPrice));
             _itemIcon.sprite = _currentItem.Icon;
             _itemNameTMP.SetText(_currentItem.ItemName);
 
@@ -141,6 +143,7 @@ namespace UdoGames.NextGenDev
 
         private void AcceptOffer()
         {
+            _customerOfferTMP.gameObject.SetActive(false);
             CurrencyManager.Instance.AddGold(_customerOffer, "Sell " + _currentItem.name);
             _inventory.RemoveItem(_currentItem);
             //CloseDealPanel();
@@ -166,6 +169,7 @@ namespace UdoGames.NextGenDev
 
         public void AcceptOffer(int offer)
         {
+            _customerOfferTMP.gameObject.SetActive(false);
             CurrencyManager.Instance.AddGold(offer, "Sell " + _currentItem.name);
             _inventory.RemoveItem(_currentItem);
             //CloseDealPanel();
@@ -196,6 +200,7 @@ namespace UdoGames.NextGenDev
 
         private void RejectOfferEndDeal()
         {
+            _customerOfferTMP.gameObject.SetActive(false);
             _currentCustomer.OnRejected();
         }
 
@@ -211,6 +216,7 @@ namespace UdoGames.NextGenDev
 
         public void OnEndByReject()
         {
+            _customerOfferTMP.gameObject.SetActive(false);
             CloseDealPanel();
             OnDealEnd();
         }

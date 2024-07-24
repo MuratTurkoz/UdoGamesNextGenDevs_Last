@@ -41,6 +41,7 @@ namespace UdoGames.NextGenDev
             this.estimatedPrice = estimatedPrice;
             float priceMultiplier = Random.Range(0.9f, 1.1f);
             customerOffer = (int)(estimatedPrice * priceMultiplier);
+            DealManager.Instance.SetCustomerDialogTMP("Şunun için bu fiyata ne dersin?");
             return customerOffer;
         }
 
@@ -64,6 +65,7 @@ namespace UdoGames.NextGenDev
                     else
                     {
                         int customerNewOffer = (int)(playerOffer * 0.95f);
+                        DealManager.Instance.SetCustomerDialogTMP("Bu çok oldu, peki bu kadara ne dersin?");
                         DealManager.Instance.CustomerOffers(customerNewOffer);
                     }
                 }
@@ -73,6 +75,7 @@ namespace UdoGames.NextGenDev
                     if (randomness <= 1)
                     {
                         int customerNewOffer = (int)(estimatedPrice * 1.1f);
+                        DealManager.Instance.SetCustomerDialogTMP("Bu abartı oldu, peki bu kadara ne dersin?");
                         DealManager.Instance.CustomerOffers(customerNewOffer);
                     }
                     else if (randomness <= 4)
