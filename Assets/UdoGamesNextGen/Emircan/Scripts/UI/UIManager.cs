@@ -43,7 +43,7 @@ public class UIManager : MonoBehaviour
 
         bool isOn = PlayerPrefs.GetInt("soundIsOn", 1) == 1;
         AudioListener.volume = isOn ? 1 : 0;
-        _soundBtnTMP.SetText(!isOn ? "Sound Off" : "Sound On");
+        _soundBtnImage.sprite = isOn ? _soundOn : _soundOff;
 
         _oceanPanel.SetActive(false);
         _playerShopPanel.SetActive(true);
@@ -56,7 +56,7 @@ public class UIManager : MonoBehaviour
         bool isOn = AudioListener.volume == 1;
         AudioListener.volume = isOn ? 0 : 1;
         PlayerPrefs.SetInt("soundIsOn", (int)AudioListener.volume);
-        _soundBtnTMP.SetText(isOn ? "Sound Off" : "Sound On");
+        _soundBtnImage.sprite = isOn ? _soundOff : _soundOn;
     }
 
     private void ToggleSettings()
@@ -74,6 +74,7 @@ public class UIManager : MonoBehaviour
         _diveBtn.gameObject.SetActive(false);
         _playerShopPanel.SetActive(false);
         _oceanPanel.SetActive(true);
+        GameSceneManager.Instance.ChangeScene(GameScene.Ocean);
     }
 
     private void ReturnShop()
@@ -81,6 +82,9 @@ public class UIManager : MonoBehaviour
         _oceanPanel.SetActive(false);
         _playerShopPanel.SetActive(true);
         _startDayBtn.gameObject.SetActive(true);
+
+        CameraController.Instance.SetCameraTopdown();
+        GameSceneManager.Instance.ChangeScene(GameScene.Market);
     }
 
     private void ShowUpgradePanel()
@@ -93,6 +97,8 @@ public class UIManager : MonoBehaviour
         _startDayBtn.gameObject.SetActive(false);
         _gameStartBtnsParent.SetActive(false);
         DayManager.Instance.StartSellPhase();
+
+        CameraController.Instance.SetCameraPov();
     }
 
     public void ShowEndDayBtn()
@@ -110,11 +116,14 @@ public class UIManager : MonoBehaviour
         _endDayBtn.gameObject.SetActive(false);
         /* ShowDailyEarnings(); */
         DayManager.Instance.EndDay();
+        CameraController.Instance.SetCameraTopdown();
     }
 
     [SerializeField] private GameObject _settingsPanel;
     [SerializeField] private Button _toggleSoundBtn;
-    [SerializeField] private TextMeshProUGUI _soundBtnTMP;
+    [SerializeField] private Image _soundBtnImage;
+    [SerializeField] private Sprite _soundOn;
+    [SerializeField] private Sprite _soundOff;
 
     [SerializeField] private Transform _dailyContentParent;
     [SerializeField] private DailyChangeRow _dailyChangeRowPrefab;
@@ -123,6 +132,14 @@ public class UIManager : MonoBehaviour
     public void ShowDailyEarnings()
     {
         _gameStartBtnsParent.SetActive(false);
+        if (_dailyChangeRowList.Count > 0)
+        {
+            for (int i = 0; i < _dailyChangeRowList.Count; i++)
+            {
+                Destroy(_dailyChangeRowList[i].gameObject);
+            }
+            _dailyChangeRowList.Clear();
+        }
         foreach (var daily in CurrencyManager.Instance.PopCurrencyLogs())
         {
             var row = Instantiate(_dailyChangeRowPrefab, _dailyContentParent);

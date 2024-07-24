@@ -7,6 +7,7 @@ namespace UdoGames.NextGenDev
     public class CustomerManager : MonoBehaviour
     {
         [SerializeField] private Transform _dealStandingTransform;
+        [SerializeField] private Transform _customerStartTransform;
         public static CustomerManager Instance { get; private set; }
 
         [SerializeField] private Customer _customerPrefab;
@@ -41,6 +42,7 @@ namespace UdoGames.NextGenDev
         public void SendCustomer()
         {
             customer = _customers[0];
+            customer.transform.position = _customerStartTransform.position;
             customer.gameObject.SetActive(true);
             customer.MoveToPlayer(_dealStandingTransform.position);
         }
