@@ -19,7 +19,7 @@ public class CollectableObject : MonoBehaviour
 
     void Start()
     {
-        itemProperty.Amount = itemProperty.GetAmount();
+       // itemProperty.Amount = itemProperty.GetAmount();
         SetUI();
     }
 

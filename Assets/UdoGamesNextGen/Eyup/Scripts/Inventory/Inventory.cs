@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public abstract class Inventory : MonoBehaviour
 {
-    [HideInInspector] public int Amount;
     public TextMeshProUGUI AmountText;
     public Image icon;
 

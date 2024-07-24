@@ -9,10 +9,15 @@ public class SpawnManager : MonoBehaviour
     public float respawnTime = 5f;        // Eşyaların yeniden spawn olma süresi
     public float minSpawnDistance = 5f;   // Eşyaların birbirine en yakın olabileceği mesafe
     public Camera mainCamera;             // kamera referansı
-    public List<GameObject> areaObjects;  // Spawn alanını belirleyen denizlerin listesi
+    private List<GameObject> areaObjects = new List<GameObject>();  // kullanılabilir denizler
+    public List<GameObject> allAreaObjects; // tüm denizler
     public LayerMask obstacleLayer;       // Engellerin bulunduğu katman
 
     private List<GameObject> collectibles = new List<GameObject>();
+    int areaCounter = 0;
+    private void Awake() {
+          AddArea();
+    }
 
     void Start()
     {
@@ -20,12 +25,7 @@ public class SpawnManager : MonoBehaviour
         {
             mainCamera = Camera.main;
         }
-
-        if (areaObjects == null || areaObjects.Count == 0)
-        {
-            return;
-        }
-
+      
         for (int i = 0; i < initialSpawnCount; i++)
         {
             SpawnCollectible();
@@ -41,7 +41,7 @@ public class SpawnManager : MonoBehaviour
             spawnPosition.z = 0;
         } while (IsPositionTooClose(spawnPosition) || IsPositionInsideCameraView(spawnPosition) || IsPositionInsideObstacle(spawnPosition));
 
-        GameObject item = Instantiate(collectiblePrefab[Random.Range(0,collectiblePrefab.Count)], spawnPosition, Quaternion.identity);
+        GameObject item = Instantiate(collectiblePrefab[Random.Range(0, collectiblePrefab.Count)], spawnPosition, Quaternion.identity);
         item.GetComponent<CollectableObject>().OnCollected += HandleCollectibleCollected;
         collectibles.Add(item);
     }
@@ -55,6 +55,19 @@ public class SpawnManager : MonoBehaviour
         float y = Random.Range(bounds.min.y, bounds.max.y);
         float z = Random.Range(bounds.min.z, bounds.max.z);
         return new Vector3(x, y, z);
+    }
+
+
+    // yeni deniz açma kısmı
+
+    public void AddArea()
+    {
+        areaObjects.Add(allAreaObjects[areaCounter]);
+        areaObjects[areaCounter++].GetComponent<BoxCollider>().isTrigger = true;
+        for (int i = 0; i < initialSpawnCount; i++)
+        {
+            SpawnCollectible();
+        }
     }
 
     bool IsPositionTooClose(Vector3 position)

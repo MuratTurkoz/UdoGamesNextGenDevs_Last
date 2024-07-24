@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
-    public Image healthBar;
+    public Slider healthBar;
+    public GameObject player;
+    public BloodEffectController bloodEffectController;
     public float healthAmount = 100f;
     public float initialHealthDecreaseRate = 11f;
-    public float checkInterval = 4f;
+    public float checkInterval = 0.5f;
 
     public OxygenManager oxygenManager;
 
@@ -16,9 +18,13 @@ public class HealthManager : MonoBehaviour
     private float currentHealthDecreaseRate;
     public float decreasingRate = 1.5f;
 
+
+    [Header("Collectable Object Part")]
+    public List<CollectableProperty> collectableProperties;
+
     void Start()
     {
-        healthBar.fillAmount = 1f;
+        healthBar.value = 1f;
         currentHealthDecreaseRate = initialHealthDecreaseRate;
     }
 
@@ -35,7 +41,20 @@ public class HealthManager : MonoBehaviour
         if (!isDecreasingHealth)
         {
             isDecreasingHealth = true;
+            bloodEffectController.StartEffect();
             StartCoroutine(DecreaseHealthCoroutine());
+        }
+    }
+
+    public void Died()
+    {
+        bloodEffectController.StopEffect();
+        player.GetComponent<Swimming>().PlayerDied();
+        player.transform.tag = "Untagget";
+
+        foreach (var item in collectableProperties)
+        {
+            item.DeleteInventory(); // öldükten sonra tüm envanter siliniyor
         }
     }
 
@@ -45,12 +64,12 @@ public class HealthManager : MonoBehaviour
         {
             yield return new WaitForSeconds(checkInterval);
             healthAmount -= currentHealthDecreaseRate;
-            healthBar.fillAmount = healthAmount / 100f;
-            
+            healthBar.value = healthAmount / 100f;
+
             if (healthAmount <= 0)
             {
                 healthAmount = 0;
-                Debug.Log("Sağlık tükendi!");
+                Died();
                 break;
             }
 
