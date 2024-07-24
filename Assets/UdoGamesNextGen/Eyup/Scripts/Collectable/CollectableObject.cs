@@ -12,8 +12,6 @@ public class CollectableObject : MonoBehaviour
 
     void OnApplicationQuit()
     {
-        /*itemProperty.isCollected = false;
-        itemProperty.itemInventory = null;*/
         itemProperty.isSaved = false;
     }
 
@@ -21,7 +19,7 @@ public class CollectableObject : MonoBehaviour
 
     void Start()
     {
-        //itemProperty.Amount = itemProperty.GetAmount();
+        itemProperty.Amount = itemProperty.GetAmount();
         SetUI();
     }
 
@@ -64,7 +62,7 @@ public class CollectableObject : MonoBehaviour
                 itemProperty.Amount++;
                 foreach (var item in InventoryManager.instance.itemInventoriesList)
                 {
-                    if(item.icon.sprite == itemProperty.iconImage)
+                    if (item.icon.sprite == itemProperty.iconImage)
                     {
                         item.SetUI(itemProperty.iconImage, itemProperty.Amount);
                     }
