@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject collectiblePrefab;  // Toplanacak eşyanın prefab'ı
+    public List<GameObject> collectiblePrefab;  // Toplanacak eşyanın prefab'ı
     public int initialSpawnCount = 10;    // Başlangıçta spawn edilecek eşya sayısı
     public float respawnTime = 5f;        // Eşyaların yeniden spawn olma süresi
     public float minSpawnDistance = 5f;   // Eşyaların birbirine en yakın olabileceği mesafe
@@ -42,7 +42,7 @@ public class SpawnManager : MonoBehaviour
             spawnPosition.z = 0;
         } while (IsPositionTooClose(spawnPosition) || IsPositionInsideCameraView(spawnPosition) || IsPositionInsideObstacle(spawnPosition));
 
-        GameObject item = Instantiate(collectiblePrefab, spawnPosition, Quaternion.identity);
+        GameObject item = Instantiate(collectiblePrefab[Random.Range(0,collectiblePrefab.Count)], spawnPosition, Quaternion.identity);
         item.GetComponent<CollectableObject>().OnCollected += HandleCollectibleCollected;
         collectibles.Add(item);
     }
