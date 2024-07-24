@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject collectiblePrefab;  // Toplanacak eşyanın prefab'ı
+    public List<GameObject> collectiblePrefab;  // Toplanacak eşyanın prefab listesi
     public int initialSpawnCount = 10;    // Başlangıçta spawn edilecek eşya sayısı
     public float respawnTime = 5f;        // Eşyaların yeniden spawn olma süresi
     public float minSpawnDistance = 5f;   // Eşyaların birbirine en yakın olabileceği mesafe
-    public Camera mainCamera;             // Ana kamera referansı
-    public List<GameObject> areaObjects;  // Spawn alanını belirleyen GameObject'lerin listesi
+    public Camera mainCamera;             // kamera referansı
+    public List<GameObject> areaObjects;  // Spawn alanını belirleyen denizlerin listesi
     public LayerMask obstacleLayer;       // Engellerin bulunduğu katman
 
     private List<GameObject> collectibles = new List<GameObject>();
@@ -23,7 +23,6 @@ public class SpawnManager : MonoBehaviour
 
         if (areaObjects == null || areaObjects.Count == 0)
         {
-            Debug.LogError("Area Objects are not assigned or the list is empty.");
             return;
         }
 
@@ -42,7 +41,7 @@ public class SpawnManager : MonoBehaviour
             spawnPosition.z = 0;
         } while (IsPositionTooClose(spawnPosition) || IsPositionInsideCameraView(spawnPosition) || IsPositionInsideObstacle(spawnPosition));
 
-        GameObject item = Instantiate(collectiblePrefab, spawnPosition, Quaternion.identity);
+        GameObject item = Instantiate(collectiblePrefab[Random.Range(0,collectiblePrefab.Count)], spawnPosition, Quaternion.identity);
         item.GetComponent<CollectableObject>().OnCollected += HandleCollectibleCollected;
         collectibles.Add(item);
     }
@@ -78,7 +77,7 @@ public class SpawnManager : MonoBehaviour
 
     bool IsPositionInsideObstacle(Vector3 position)
     {
-        float checkRadius = 0.5f; // Kontrol yarıçapını ayarlayın
+        float checkRadius = 0.5f;
         return Physics.CheckSphere(position, checkRadius, obstacleLayer);
     }
 
