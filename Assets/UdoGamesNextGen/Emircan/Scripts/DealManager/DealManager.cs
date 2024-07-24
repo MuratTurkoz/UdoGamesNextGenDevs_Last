@@ -103,7 +103,7 @@ namespace UdoGames.NextGenDev
         {
             _playerDealTMP.SetText(NumberConverter.ConvertToString(_currentItem.EstimatedPrice));
 
-            _itemEstimatedPriceTMP.SetText(NumberConverter.ConvertToString(_currentItem.EstimatedPrice));
+            _itemEstimatedPriceTMP.SetText("Estimated Price: " + NumberConverter.ConvertToString(_currentItem.EstimatedPrice));
             _itemIcon.sprite = _currentItem.Icon;
             _itemNameTMP.SetText(_currentItem.ItemName);
 
