@@ -31,7 +31,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void SaveAllInventory(ItemInventory item, CollectableProperty collectableProperty)
+    public void GetAllInventory(ItemInventory item, CollectableProperty collectableProperty)
     {
 
         if (collectableProperty.Amount != 0)

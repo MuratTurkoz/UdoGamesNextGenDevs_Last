@@ -81,6 +81,14 @@ public class CollectableProperty : ScriptableObject
         PlayerPrefs.SetInt(Name, Amount);
     }
 
+    public void DeleteInventory()
+    {
+        Amount = 0;
+        isCollected = false;
+        isSaved = false;
+        PlayerPrefs.SetInt(Name, Amount);
+    }
+
     public int GetAmount()
     {
         if (!PlayerPrefs.HasKey(Name))
@@ -94,16 +102,16 @@ public class CollectableProperty : ScriptableObject
     private async Task SaveWhenEnable()
     {
         await Task.Delay(100); // Delay added to simulate some async work
-        SaveAll();
+        GetAll();
     }
 
-    public void SaveAll()
+    public void GetAll()
     {
         if (!isSaved)
         {
             if (InventoryManager.instance != null)
             {
-                InventoryManager.instance.SaveAllInventory(itemInventory, this);
+                InventoryManager.instance.GetAllInventory(itemInventory, this);
                 isSaved = true;
             }
             else

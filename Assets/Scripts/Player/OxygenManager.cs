@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class OxygenManager : MonoBehaviour
 {
-    public Image oxygenBar;
+    public Slider oxygenBar;
     public float oxygenAmount = 97f;
     public float oxygenDepletionRate = 2f;
     public bool isUnderwater = false;
@@ -17,7 +17,7 @@ public class OxygenManager : MonoBehaviour
 
     void Start()
     {
-        oxygenBar.fillAmount = 1f;
+        oxygenBar.value = 1f;
     }
 
     void Update()
@@ -33,7 +33,7 @@ public class OxygenManager : MonoBehaviour
         if (oxygenAmount > 0)
         {
             oxygenAmount -= oxygenDepletionRate * Time.deltaTime;
-            oxygenBar.fillAmount = oxygenAmount / 100f;
+            oxygenBar.value = oxygenAmount / 100f;
 
             if (oxygenAmount <= 7f && !isOxygenOut)
             {

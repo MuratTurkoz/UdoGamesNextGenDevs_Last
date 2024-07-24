@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Swimming : MonoBehaviour
@@ -18,6 +19,7 @@ public class Swimming : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.transform.tag = "Player";
        myRigidBody = GetComponent<Rigidbody>(); 
     }
 
@@ -33,8 +35,14 @@ public class Swimming : MonoBehaviour
     }
     private void OnTriggerExit(Collider other) {
         if(other.gameObject.tag == "Water"){
-            isSwimming = false;
+           // isSwimming = false;
         }
+    }
+
+    public void PlayerDied()
+    {
+        isSwimming = false;
+        myAnimator.SetBool("isDied", true);
     }
    
    private void Swim() {
