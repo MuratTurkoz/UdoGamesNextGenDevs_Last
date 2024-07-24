@@ -43,7 +43,7 @@ public class UIManager : MonoBehaviour
 
         bool isOn = PlayerPrefs.GetInt("soundIsOn", 1) == 1;
         AudioListener.volume = isOn ? 1 : 0;
-        _soundBtnTMP.SetText(!isOn ? "Sound Off" : "Sound On");
+        _soundBtnImage.sprite = isOn ? _soundOn : _soundOff;
 
         _oceanPanel.SetActive(false);
         _playerShopPanel.SetActive(true);
@@ -56,7 +56,7 @@ public class UIManager : MonoBehaviour
         bool isOn = AudioListener.volume == 1;
         AudioListener.volume = isOn ? 0 : 1;
         PlayerPrefs.SetInt("soundIsOn", (int)AudioListener.volume);
-        _soundBtnTMP.SetText(isOn ? "Sound Off" : "Sound On");
+        _soundBtnImage.sprite = isOn ? _soundOff : _soundOn;
     }
 
     private void ToggleSettings()
@@ -114,7 +114,9 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private GameObject _settingsPanel;
     [SerializeField] private Button _toggleSoundBtn;
-    [SerializeField] private TextMeshProUGUI _soundBtnTMP;
+    [SerializeField] private Image _soundBtnImage;
+    [SerializeField] private Sprite _soundOn;
+    [SerializeField] private Sprite _soundOff;
 
     [SerializeField] private Transform _dailyContentParent;
     [SerializeField] private DailyChangeRow _dailyChangeRowPrefab;
