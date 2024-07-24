@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 042074e4ef0b21443b039bf171c04d1c
+<<<<<<<< Updated upstream:Assets/Scenes/UnderWater.unity.meta
+guid: 45410e6d084880d4e81c8906f4179380
+========
+guid: a44401f8b3d263c4e9c2ed62b3f5adff
+>>>>>>>> Stashed changes:Assets/UdoGamesNextGen/Baran/Packages/Quirky Series Ultimate/_Shader/URP (Unity 2019.3.0f3 and above)/SoftSurfaceGraph.shadergraph.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
