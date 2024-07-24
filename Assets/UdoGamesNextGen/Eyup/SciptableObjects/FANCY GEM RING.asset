@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56da5e172a7dc21419270eeb1223cdc4, type: 3}
-  m_Name: Property 1
+  m_Name: FANCY GEM RING
   m_EditorClassIdentifier: 
   BaseCost: 0
   Amount: 0
-  Name: DIAMOND
-  iconImage: {fileID: 21300000, guid: cb6a786ff551af3439d2c763971de1ad, type: 3}
+  Name: FANCY GEM RING
+  iconImage: {fileID: 21300000, guid: 25a4c68b6dfc7ce4fb563bc19b2c719b, type: 3}
   isCollected: 0
   isSaved: 0
   itemInventory: {fileID: 0}
-  condition: 1
-  frequency: 2
+  condition: 0
+  frequency: 0

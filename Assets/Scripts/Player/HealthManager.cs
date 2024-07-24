@@ -48,9 +48,10 @@ public class HealthManager : MonoBehaviour
 
     public void Died()
     {
-        bloodEffectController.StopEffect();
+        
         player.GetComponent<Swimming>().PlayerDied();
-        player.transform.tag = "Untagget";
+        player.transform.tag = "New tag";
+        bloodEffectController.StopEffect();
 
         foreach (var item in collectableProperties)
         {

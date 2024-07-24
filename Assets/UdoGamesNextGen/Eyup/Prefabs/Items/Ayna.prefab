@@ -27,7 +27,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2309339344934007039}
   m_LocalRotation: {x: 0.30738208, y: 0.29274273, z: 0.65566427, w: 0.6244377}
-  m_LocalPosition: {x: 0, y: 0, z: 0.031440597}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0472}
   m_LocalScale: {x: 0.09999998, y: 0.09999998, z: 0.09999998}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.0261625, y: -0.0043102503}
+  m_AnchoredPosition: {x: -0.0393, y: -0.0053}
   m_SizeDelta: {x: 2.0956, y: 0.3161}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5049620557594411793
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 124fdea7570b81c4eb094e8af4f94761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemProperty: {fileID: 11400000, guid: 0d605c166b51e32419b74d23a6530f40, type: 2}
+  itemProperty: {fileID: 11400000, guid: 9490d67060f424b43b615b00d7b0d2ee, type: 2}
   nameText: {fileID: 4814958483514337778}
 --- !u!64 &-6916752573274402715
 MeshCollider:

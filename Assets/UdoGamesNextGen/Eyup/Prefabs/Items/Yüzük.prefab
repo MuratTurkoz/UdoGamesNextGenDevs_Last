@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 124fdea7570b81c4eb094e8af4f94761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemProperty: {fileID: 11400000, guid: 0d605c166b51e32419b74d23a6530f40, type: 2}
+  itemProperty: {fileID: 11400000, guid: c7c5b62df4cdc29409960bfd774e37b2, type: 2}
   nameText: {fileID: 6596651603986505614}
 --- !u!64 &3500624147086109318
 MeshCollider:
@@ -292,7 +292,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.0019, y: -0.0194}
+  m_AnchoredPosition: {x: -0.0019, y: -0.0239}
   m_SizeDelta: {x: 2.0956, y: 0.3161}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5573203475901169741

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56da5e172a7dc21419270eeb1223cdc4, type: 3}
-  m_Name: Property 2
+  m_Name: SUNSTONE NECKLACE
   m_EditorClassIdentifier: 
   BaseCost: 0
   Amount: 0
-  Name: RING
-  iconImage: {fileID: 21300000, guid: 89043d3e41665024bab93d1564e32c64, type: 3}
+  Name: SUNSTONE NECKLACE
+  iconImage: {fileID: 21300000, guid: a867941bddc10d54ebb1a897b12bbcfc, type: 3}
   isCollected: 0
   isSaved: 0
   itemInventory: {fileID: 0}

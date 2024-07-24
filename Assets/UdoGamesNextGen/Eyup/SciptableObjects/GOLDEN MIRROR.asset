@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56da5e172a7dc21419270eeb1223cdc4, type: 3}
-  m_Name: Property 3
+  m_Name: GOLDEN MIRROR
   m_EditorClassIdentifier: 
   BaseCost: 0
   Amount: 0
-  Name: NECKLACE
-  iconImage: {fileID: 21300000, guid: 20bde315f590142439ae14b5457dfd6a, type: 3}
+  Name: GOLDEN MIRROR
+  iconImage: {fileID: 21300000, guid: 4725f6b1b998f884c988052e684d4be2, type: 3}
   isCollected: 0
-  isSaved: 0
+  isSaved: 1
   itemInventory: {fileID: 0}
   condition: 0
   frequency: 0
