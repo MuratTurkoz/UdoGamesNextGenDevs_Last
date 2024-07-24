@@ -1204,7 +1204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oxygenBar: {fileID: 460129206}
   oxygenAmount: 100
-  oxygenDepletionRate: 50
+  oxygenDepletionRate: 2
   isUnderwater: 1
   isOxygenOut: 0
   healthManager: {fileID: 924727161}
@@ -3267,10 +3267,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectiblePrefab:
-  - {fileID: 6925060529288038535, guid: 3248d70b4afa69a4d94aa56275b74238, type: 3}
-  - {fileID: 6925060529288038535, guid: 5e34a9d3b5d6d18449b5ff8ef3b63900, type: 3}
-  - {fileID: 6925060529288038535, guid: 27a7bdb16ea0cde448f93b1f89e07242, type: 3}
-  - {fileID: 6925060529288038535, guid: 0c9b9fa8422ee594bae23116afb117fe, type: 3}
+  - {fileID: 3378191509916593455, guid: cec7076a916f29d4698b6d3ba0672f15, type: 3}
+  - {fileID: 3884320487447675658, guid: ced78ca06914d164e8fce719a1ac943e, type: 3}
+  - {fileID: 4724998080962489794, guid: 0e9a7002194d454458a32c799828726b, type: 3}
+  - {fileID: 4967060107139657939, guid: bdb5c3bd2b2e19540b17c966d2a18982, type: 3}
+  - {fileID: 780127897931333067, guid: afd1d540fd0c98141b2e503785877775, type: 3}
+  - {fileID: 7025373334354429429, guid: dec67a3b5580f1b4fb249b1cff6c2816, type: 3}
+  - {fileID: 1330259665119528863, guid: ca9e5bc2e96074943b9bcbc70f8ca3a3, type: 3}
+  - {fileID: 6130936129538109146, guid: ff420a9affe7f7248badef72f6c795a2, type: 3}
+  - {fileID: 1718916556205813325, guid: 71ed5075002b553449c5594543062062, type: 3}
   initialSpawnCount: 10
   respawnTime: 1
   minSpawnDistance: 5
@@ -3281,7 +3286,7 @@ MonoBehaviour:
   - {fileID: 2010881919}
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
 --- !u!1 &1020040256
 GameObject:
   m_ObjectHideFlags: 0
