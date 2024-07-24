@@ -20,6 +20,7 @@ public class CameraController : MonoBehaviour
 
     public void SetCameraTopdown()
     {
+        /* GetComponent<Camera>().orthographic = false; */
         transform.DOMove(_marketTopdownTransform.position, 1f);
         transform.DORotate(_marketTopdownTransform.eulerAngles, 1f);
     }
@@ -28,6 +29,7 @@ public class CameraController : MonoBehaviour
     {
         transform.DOMove(_marketPovTransform.position, 1f);
         transform.DORotate(_marketPovTransform.eulerAngles, 1f);
+        //.OnComplete(() => GetComponent<Camera>().orthographic = true);
     }
 
 }
