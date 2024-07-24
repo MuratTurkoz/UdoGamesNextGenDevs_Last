@@ -81,6 +81,8 @@ public class UIManager : MonoBehaviour
         _oceanPanel.SetActive(false);
         _playerShopPanel.SetActive(true);
         _startDayBtn.gameObject.SetActive(true);
+
+        CameraController.Instance.SetCameraTopdown();
     }
 
     private void ShowUpgradePanel()
@@ -93,6 +95,8 @@ public class UIManager : MonoBehaviour
         _startDayBtn.gameObject.SetActive(false);
         _gameStartBtnsParent.SetActive(false);
         DayManager.Instance.StartSellPhase();
+
+        CameraController.Instance.SetCameraPov();
     }
 
     public void ShowEndDayBtn()
@@ -110,6 +114,7 @@ public class UIManager : MonoBehaviour
         _endDayBtn.gameObject.SetActive(false);
         /* ShowDailyEarnings(); */
         DayManager.Instance.EndDay();
+        CameraController.Instance.SetCameraTopdown();
     }
 
     [SerializeField] private GameObject _settingsPanel;
@@ -125,6 +130,14 @@ public class UIManager : MonoBehaviour
     public void ShowDailyEarnings()
     {
         _gameStartBtnsParent.SetActive(false);
+        if (_dailyChangeRowList.Count > 0)
+        {
+            for (int i = 0; i < _dailyChangeRowList.Count; i++)
+            {
+                Destroy(_dailyChangeRowList[i].gameObject);
+            }
+            _dailyChangeRowList.Clear();
+        }
         foreach (var daily in CurrencyManager.Instance.PopCurrencyLogs())
         {
             var row = Instantiate(_dailyChangeRowPrefab, _dailyContentParent);
