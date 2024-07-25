@@ -15,6 +15,7 @@ public class CollectableProperty : ScriptableObject
     public bool isCollected;
     public bool isSaved;
     public ItemInventory itemInventory;
+    public ItemSO itemSO;
 
     public enum Conditions
     {
@@ -93,6 +94,18 @@ public class CollectableProperty : ScriptableObject
     }
 
     public void DeleteInventory()
+    {
+        for (int i = 0; i < Amount; i++)
+        {
+            BaseInventory.Instance.RemoveItem(itemSO);
+        }
+        Amount = 0;
+        isCollected = false;
+        isSaved = false;
+        PlayerPrefs.SetInt(Name, Amount);
+    }
+
+    public void ClearSave()
     {
         Amount = 0;
         isCollected = false;

@@ -36,14 +36,21 @@ namespace UdoGames.NextGenDev
             DealManager.Instance.StartDeal(this);
         }
 
+        [SerializeField] private string[] _firstCentences;
+
         public int GivePrice(int estimatedPrice)
         {
             this.estimatedPrice = estimatedPrice;
             float priceMultiplier = Random.Range(0.9f, 1.1f);
             customerOffer = (int)(estimatedPrice * priceMultiplier);
-            DealManager.Instance.SetCustomerDialogTMP("Şunun için bu fiyata ne dersin?");
+            string randomSentence = _firstCentences[Random.Range(0, _firstCentences.Length)];
+            randomSentence = randomSentence.Replace("yyy", customerOffer.ToString() + "$");
+            DealManager.Instance.SetCustomerDialogTMP(randomSentence);
             return customerOffer;
         }
+
+        [SerializeField] private string[] _secondOfferSentences;
+        [SerializeField] private string[] _angryOfferSentences;
 
         public void GiveOffer(int playerOffer, int phase)
         {
@@ -65,7 +72,9 @@ namespace UdoGames.NextGenDev
                     else
                     {
                         int customerNewOffer = (int)(playerOffer * 0.95f);
-                        DealManager.Instance.SetCustomerDialogTMP("Bu çok oldu, peki bu kadara ne dersin?");
+                        string randomSentence = _secondOfferSentences[Random.Range(0, _secondOfferSentences.Length)];
+                        randomSentence = randomSentence.Replace("x$", customerNewOffer.ToString() + "$");
+                        DealManager.Instance.SetCustomerDialogTMP(randomSentence);
                         DealManager.Instance.CustomerOffers(customerNewOffer);
                     }
                 }
@@ -75,6 +84,8 @@ namespace UdoGames.NextGenDev
                     if (randomness <= 1)
                     {
                         int customerNewOffer = (int)(estimatedPrice * 1.1f);
+                        string randomSentence = _angryOfferSentences[Random.Range(0, _angryOfferSentences.Length)];
+                        randomSentence = randomSentence.Replace("x$", customerNewOffer.ToString() + "$");
                         DealManager.Instance.SetCustomerDialogTMP("Bu abartı oldu, peki bu kadara ne dersin?");
                         DealManager.Instance.CustomerOffers(customerNewOffer);
                     }
@@ -107,7 +118,7 @@ namespace UdoGames.NextGenDev
 
         public void OnRejected()
         {
-            DealManager.Instance.SetCustomerDialogTMP("Sen bilirsin!");
+            DealManager.Instance.SetCustomerDialogTMP(_customerLeaveSentences[Random.Range(0, _customerLeaveSentences.Length)]);
             DealManager.Instance.CloseOtherThanCustomer();
             Invoke(nameof(Rejected), 2f);
         }
@@ -119,9 +130,11 @@ namespace UdoGames.NextGenDev
             DealManager.Instance.OnEndByReject();
         }
 
+        [SerializeField] private string[] _customerLeaveSentences;
+
         private void RejectOfferFinishDeal()
         {
-            DealManager.Instance.SetCustomerDialogTMP("Abartma bu fiyata olmaz!");
+            DealManager.Instance.SetCustomerDialogTMP(_customerLeaveSentences[Random.Range(0, _customerLeaveSentences.Length)]);
             DealManager.Instance.CloseOtherThanCustomer();
             Invoke(nameof(Leave), 2f);
         }

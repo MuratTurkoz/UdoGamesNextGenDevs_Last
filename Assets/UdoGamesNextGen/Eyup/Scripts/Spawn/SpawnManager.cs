@@ -20,6 +20,28 @@ public class SpawnManager : MonoBehaviour
     {
         areaObjects.Add(allAreaObjects[areaCounter]);
         areaObjects[areaCounter++].GetComponent<BoxCollider>().isTrigger = true;
+        /* for (int i = 0; i < initialSpawnCount; i++)
+        {
+            SpawnCollectible();
+        } */
+        if (GameSceneManager.Instance)
+            GameSceneManager.Instance.OnPlayerEnteredOcean += SpawnAllCollectable;
+    }
+
+    private void SpawnAllCollectable()
+    {
+        if (collectibles != null)
+        {
+            if (collectibles.Count > 0)
+            {
+                for (int i = collectibles.Count - 1; i >= 0; i--)
+                {
+                    Destroy(collectibles[i]);
+                    collectibles.RemoveAt(i);
+                }
+            }
+        }
+
         for (int i = 0; i < initialSpawnCount; i++)
         {
             SpawnCollectible();
@@ -31,11 +53,6 @@ public class SpawnManager : MonoBehaviour
         if (mainCamera == null)
         {
             mainCamera = Camera.main;
-        }
-
-        for (int i = 0; i < initialSpawnCount; i++)
-        {
-            SpawnCollectible();
         }
     }
 

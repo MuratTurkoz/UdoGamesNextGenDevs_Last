@@ -68,6 +68,7 @@ namespace UdoGames.NextGenDev
         private void UpdateMoney()
         {
             _currentGold.Value += deltaMoney;
+            SaveGold();
         }
 
         public void ReduceGold(int delta, string log)
@@ -75,6 +76,7 @@ namespace UdoGames.NextGenDev
             _currencyLogs.Add(new CurrencyLog(log, -delta));
             _currentGold.Value -= delta;
             _currentGold.Value = Mathf.Max(0, _currentGold.Value);
+            SaveGold();
         }
     }
 }

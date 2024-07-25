@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
@@ -24,8 +25,27 @@ public class HealthManager : MonoBehaviour
 
     void Start()
     {
-        healthBar.value = 1f;
+        ResetHealth();
+    }
+
+    private void OnEnable() {
+        if (GameSceneManager.Instance)
+            GameSceneManager.Instance.OnPlayerEnteredOcean += ResetHealth;
+    }
+
+    private void OnDisable() {
+        if (GameSceneManager.Instance)
+            GameSceneManager.Instance.OnPlayerEnteredOcean -= ResetHealth;
+    }
+
+    private void ResetHealth()
+    {
+        isDecreasingHealth = false;
+        /* bloodEffectController.StopEffect(); */
+        healthAmount = 100;
+        healthBar.value = 1;
         currentHealthDecreaseRate = initialHealthDecreaseRate;
+        player.transform.tag = "Player";
     }
 
     void Update()
@@ -55,8 +75,14 @@ public class HealthManager : MonoBehaviour
 
         foreach (var item in collectableProperties)
         {
+            for (int i = 0; i < item.Amount; i++)
+            {
+                BaseInventory.Instance.RemoveItem(item.itemSO);
+            }
             item.DeleteInventory(); // öldükten sonra tüm envanter siliniyor
         }
+
+        UIManager.Instance.ShowYouDiedUI();
     }
 
     public void GetDamage(float damage)

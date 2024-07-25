@@ -19,5 +19,6 @@ MonoBehaviour:
   isCollected: 0
   isSaved: 0
   itemInventory: {fileID: 0}
+  itemSO: {fileID: 11400000, guid: c4c727008a9412944997ec14f88fe5bd, type: 2}
   condition: 1
   frequency: 2

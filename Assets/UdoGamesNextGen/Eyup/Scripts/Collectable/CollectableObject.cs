@@ -19,7 +19,7 @@ public class CollectableObject : MonoBehaviour
 
     void Start()
     {
-       // itemProperty.Amount = itemProperty.GetAmount();
+       itemProperty.Amount = itemProperty.GetAmount();
         SetUI();
     }
 
@@ -37,8 +37,12 @@ public class CollectableObject : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            OnCollected?.Invoke(gameObject);
-            itemProperty.isCollected = true;
+            if (BaseInventory.Instance.IsThereAnySpace())
+            {
+                BaseInventory.Instance.AddItem(itemProperty.itemSO);
+                OnCollected?.Invoke(gameObject);
+                itemProperty.isCollected = true;
+            }
         }
     }
 

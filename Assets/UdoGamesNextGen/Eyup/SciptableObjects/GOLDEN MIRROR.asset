@@ -17,7 +17,8 @@ MonoBehaviour:
   Name: GOLDEN MIRROR
   iconImage: {fileID: 21300000, guid: 4725f6b1b998f884c988052e684d4be2, type: 3}
   isCollected: 0
-  isSaved: 1
+  isSaved: 0
   itemInventory: {fileID: 0}
+  itemSO: {fileID: 11400000, guid: eec20f2560cb3b84ea7f68d8422a960a, type: 2}
   condition: 0
   frequency: 0

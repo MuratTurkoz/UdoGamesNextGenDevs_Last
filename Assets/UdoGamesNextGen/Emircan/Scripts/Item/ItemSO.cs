@@ -7,5 +7,6 @@ public class ItemSO : ScriptableObject
 {
     public string ItemName;
     public int EstimatedPrice;
-    public Sprite Icon;
+    public Sprite Icon => collectableProperty.iconImage;
+    public CollectableProperty collectableProperty;
 }

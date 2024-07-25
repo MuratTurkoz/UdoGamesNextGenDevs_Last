@@ -29,6 +29,23 @@ public class InventoryManager : MonoBehaviour
         {
             itemInventories.Enqueue(item);
         }
+        CleanUI();
+        GameSceneManager.Instance.OnPlayerEnteredOcean += CleanUI;
+    }
+
+    [SerializeField] private Sprite nullSprite;
+
+    private void CleanUI()
+    {
+        itemInventories.Clear();
+        foreach (var item in itemInventoriesList)
+        {
+            itemInventories.Enqueue(item);
+        }
+        foreach (var item in itemInventoriesList)
+        {
+            item.SetUI(nullSprite, 0);
+        }
     }
 
     public void GetAllInventory(ItemInventory item, CollectableProperty collectableProperty)

@@ -48,6 +48,32 @@ MonoBehaviour:
   _gfxs:
   - {fileID: 9059491844452422710}
   - {fileID: 7974579622555069917}
+  _firstCentences:
+  - "Hi there, I\u2019m interested in this item of yours. I can offer yyy"
+  - Hmm, I can give yyy for this one.
+  - "I\u2019m giving this item yyy "
+  - "This item really caught my interest, I\u2019m offering yyy"
+  - Hello, I want to buy this item. My price is yyy
+  _secondOfferSentences:
+  - Not okay, how about x$?
+  - "I can\u2019t afford that, but I can offer you x$."
+  - "Unfortunately, I can\u2019t pay that much. What about x$?"
+  - This price is too high for me. How about x$?
+  - "I can\u2019t buy it at this price, I\u2019m offering x$."
+  _angryOfferSentences:
+  - No, too expensive. x$ is all I can accept.
+  - Nope, very costly. However, what about x$?
+  - "I can\u2019t buy at that price, very expensive. However, if you agree on x$,
+    I might reconsider."
+  - This price is too high, but I can take it at x$.
+  - "Very expensive, I\u2019m offering x$."
+  _customerLeaveSentences:
+  - "That\u2019s too expensive, not interested anymore."
+  - "I\u2019ll pass, thanks."
+  - "I\u2019ve changed my mind, goodbye."
+  - "Nevermind, I\u2019ll pass."
+  - "This price is too high, I\u2019m not buying."
+  - "Not worth it at this price, I\u2019m not interested."
 --- !u!1 &7974579622555069917
 GameObject:
   m_ObjectHideFlags: 0

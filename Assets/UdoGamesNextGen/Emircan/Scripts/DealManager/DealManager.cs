@@ -141,6 +141,8 @@ namespace UdoGames.NextGenDev
             _dealOptions.SetActive(false);
         }
 
+        [SerializeField] private string[] _acceptOfferTexts;
+
         private void AcceptOffer()
         {
             _customerOfferTMP.gameObject.SetActive(false);
@@ -149,7 +151,7 @@ namespace UdoGames.NextGenDev
             //CloseDealPanel();
             CloseOtherThanCustomer();
             /* CustomerManager.Instance.RemoveCustomer(); */
-            _customerDialogTMP.SetText("Anlaştık");
+            _customerDialogTMP.SetText(_acceptOfferTexts[Random.Range(0, _acceptOfferTexts.Length)]);
             Invoke(nameof(OnDealEnd), 2f);
         }
 
@@ -174,7 +176,7 @@ namespace UdoGames.NextGenDev
             _inventory.RemoveItem(_currentItem);
             //CloseDealPanel();
             CloseOtherThanCustomer();
-            _customerDialogTMP.SetText("Anlaştık he");
+            _customerDialogTMP.SetText(_acceptOfferTexts[Random.Range(0, _acceptOfferTexts.Length)]);
             Invoke(nameof(OnDealEnd), 2f);
         }
 

@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine.Utility;
+using UdoGames.NextGenDev;
 using UnityEngine;
 
 public class Swimming : MonoBehaviour
 {
+    [SerializeField] private Float paletMoveSpeed;
     public float swimSpeed = 5f;
     public float amplitude = 0.25f;
     public float frequency = 1.0f;
@@ -14,11 +17,33 @@ public class Swimming : MonoBehaviour
     public float turnSpeed = 5f; // Yumuşak dönüş için bir hız değeri
     public GameObject playerBody; // Oyuncunun gövdesini temsil eden GameObject
 
+    public Transform StartTransform;
+
     // Start is called before the first frame update
     void Start()
     {
+        myRigidBody = GetComponent<Rigidbody>();
+        ResetPosition();
+    }
+
+    private void OnEnable() {
+        if (GameSceneManager.Instance)
+            GameSceneManager.Instance.OnPlayerEnteredOcean += ResetPosition;
+    }
+
+    private void OnDisable() {
+        if (GameSceneManager.Instance)
+            GameSceneManager.Instance.OnPlayerEnteredOcean -= ResetPosition;
+    }
+
+    private void ResetPosition()
+    {
+        if (!StartTransform) return;
         this.transform.tag = "Player";
-        myRigidBody = GetComponent<Rigidbody>(); 
+        transform.position = StartTransform.position;
+        transform.eulerAngles = StartTransform.eulerAngles;
+        myAnimator.SetBool("isDied", false);
+        myAnimator.SetBool("isMove", false);
     }
 
     // Update is called once per frame
@@ -66,8 +91,8 @@ public class Swimming : MonoBehaviour
             else 
             {
                 // Player input detected, move accordingly
-                float xValue = xInput * swimSpeed;
-                float yValue = yInput * swimSpeed;
+                float xValue = xInput * (swimSpeed + (paletMoveSpeed != null ? paletMoveSpeed.Value : 0));
+                float yValue = yInput * (swimSpeed + (paletMoveSpeed != null ? paletMoveSpeed.Value : 0));
                 targetVelocity += new Vector3(xValue, yValue, 0);
 
                 myAnimator.SetBool("isMove", true);
