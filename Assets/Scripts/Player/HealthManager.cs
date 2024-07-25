@@ -40,7 +40,7 @@ public class HealthManager : MonoBehaviour
     private void ResetHealth()
     {
         isDecreasingHealth = false;
-        bloodEffectController.StopEffect();
+        /* bloodEffectController.StopEffect(); */
         healthAmount = 100;
         healthBar.value = 1;
         currentHealthDecreaseRate = initialHealthDecreaseRate;

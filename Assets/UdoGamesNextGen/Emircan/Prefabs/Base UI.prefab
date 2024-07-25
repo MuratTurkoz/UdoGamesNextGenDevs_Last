@@ -5649,6 +5649,9 @@ MonoBehaviour:
   _upgradeBtnPrefab: {fileID: 7561677513432338856, guid: 70638852280f1b342b8beb21c380e338, type: 3}
   _upgrades:
   - {fileID: 11400000, guid: 7f7043f2c1108c044b9e13387e49843a, type: 2}
+  - {fileID: 11400000, guid: 267847714cfd3c647ac25d1d509566cd, type: 2}
+  - {fileID: 11400000, guid: 97f85535653d468469cf004bfa923c55, type: 2}
+  - {fileID: 11400000, guid: f1620592f96a5224299f812d06f7b905, type: 2}
 --- !u!1 &4752672735846791639
 GameObject:
   m_ObjectHideFlags: 0
@@ -6446,7 +6449,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &5222717843107617159
 MonoBehaviour:
