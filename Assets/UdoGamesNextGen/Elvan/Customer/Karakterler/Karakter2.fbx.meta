@@ -3,7 +3,12 @@ guid: a3c3d0ac8b9f91c4eaac77b16de48c6f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Karakter2
+    second: {fileID: 2100000, guid: acc920930059d1f408e81c255211782c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -77,7 +82,9 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
+  referencedClips:
+  - b6ea7a738e1cf88438cd93a100d3b55c
+  - fee93c636f5b8e94c91db92ce2f9fb20
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
