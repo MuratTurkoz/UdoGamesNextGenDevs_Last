@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: Upgrade Move Speed
   m_EditorClassIdentifier: 
   level: 1
-  prices: 6400000064000000c80000002c010000
+  prices: dc050000ac0d00007017000010270000
   upgradeName: Move Speed
   icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
   valueToUpgrade: {fileID: 11400000, guid: a9f6bc083567d3c479d1c1e2ed1d399c, type: 2}
   values:
+  - 1
+  - 1.5
+  - 2
   - 3
   - 4
-  - 5
-  - 6
