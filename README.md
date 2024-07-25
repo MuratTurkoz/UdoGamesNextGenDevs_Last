@@ -58,7 +58,7 @@ The theme section, we thought of a summer theme since our game is underwater and
 In the character design part, we decided to have our character as an old shop owner. Our character has two forms, the underwater version and the one in the shop.
 
 - Our character's underwater preview
-<img width="350" height="435" src="Readme images/characters/ana-karakter-sualt.png">
+<img width="330" height="400" src="Readme images/characters/ana-karakter-sualt.png">
 
 
 - Our character's preview in the shop
