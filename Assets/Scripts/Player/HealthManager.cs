@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
@@ -80,6 +81,8 @@ public class HealthManager : MonoBehaviour
             }
             item.DeleteInventory(); // öldükten sonra tüm envanter siliniyor
         }
+
+        UIManager.Instance.ShowYouDiedUI();
     }
 
     public void GetDamage(float damage)

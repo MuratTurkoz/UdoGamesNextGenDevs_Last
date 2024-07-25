@@ -4,6 +4,7 @@ using TMPro;
 using UdoGames.NextGenDev;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -31,6 +32,16 @@ public class UIManager : MonoBehaviour
         _dailyChangeRowList = new List<DailyChangeRow>();
     }
 
+    public void ShowReturnBtn()
+    {
+        _returnShopBtn.gameObject.SetActive(true);
+    }
+
+    public void CloseReturnBtn()
+    {
+        _returnShopBtn.gameObject.SetActive(false);
+    }
+
     private void Start() {
         _showUpgradeBtn.onClick.AddListener(ShowUpgradePanel);
         _diveBtn.onClick.AddListener(StartDive);
@@ -52,6 +63,10 @@ public class UIManager : MonoBehaviour
         _startDayBtn.gameObject.SetActive(false);
         _endDayBtn.gameObject.SetActive(false);
         GameSceneManager.Instance.OnPlayerEnteredMarket += OnMarketOpened;
+        GameSceneManager.Instance.OnPlayerEnteredOcean += CloseReturnBtn;
+        _resetDayBtn.onClick.AddListener(ResetStartDay);
+
+        _rentTMP.SetText("Rent: " + DayManager.Instance.Rent);
     }
 
     private void ToggleSound()
@@ -74,6 +89,7 @@ public class UIManager : MonoBehaviour
 
     private void StartDive()
     {
+        _returnShopBtn.gameObject.SetActive(false);
         _generalPanel.SetActive(false);
         _diveBtn.gameObject.SetActive(false);
         _playerShopPanel.SetActive(false);
@@ -157,11 +173,31 @@ public class UIManager : MonoBehaviour
         _dailyEarningsPanel.SetActive(true);
     }
 
+
+    [SerializeField] private GameObject _loseGamePanel;
+    [SerializeField] private Button _restartAllGameBtn;
+
+    private void RestartAllGame()
+    {
+        PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    [SerializeField] private TextMeshProUGUI _rentTMP;
+
     private void SkipDailyEarnings()
     {
         _dailyEarningsPanel.SetActive(false);
+
+        if (CurrencyManager.Instance.Gold >= 0)
+        {
+            ResetUIToStart();
+        }
+        else
+        {
+            _loseGamePanel.SetActive(true);
+        }
         /* DayManager.Instance.EndDay(); */
-        ResetUIToStart();
     }
 
     public void ResetUIToStart()
@@ -176,6 +212,22 @@ public class UIManager : MonoBehaviour
         _endDayBtn.gameObject.SetActive(false);
         _gameStartBtnsParent.SetActive(true);
         _diveBtn.gameObject.SetActive(true);
+        _returnShopBtn.gameObject.SetActive(false);
+        _rentTMP.SetText("Rent: " + DayManager.Instance.Rent);
+    }
+
+    [SerializeField] private GameObject _youDiedPanel;
+    [SerializeField] private Button _resetDayBtn;
+
+    public void ShowYouDiedUI()
+    {
+        _youDiedPanel.SetActive(true);
+    }
+
+    private void ResetStartDay()
+    {
+        _youDiedPanel.SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     
 }

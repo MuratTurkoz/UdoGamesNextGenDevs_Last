@@ -19,10 +19,16 @@ public class UpgradeManager : MonoBehaviour
 
         for (int i = 0; i < _upgrades.Length; i++)
         {
-            _upgrades[i].Load();
             var btn = Instantiate(_upgradeBtnPrefab, _upgradeListContentParent);
             btn.InitUpgrade(_upgrades[i]);
             _upgradeBtns.Add(btn);
+        }
+    }
+
+    private void Start() {
+        foreach (var upgrade in _upgrades)
+        {
+            upgrade.Load();
         }
     }
 
