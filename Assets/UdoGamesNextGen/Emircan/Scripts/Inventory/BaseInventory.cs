@@ -73,11 +73,6 @@ public class BaseInventory : MonoBehaviour
 
     private void Load()
     {
-        if (File.Exists(savePath))
-        {
-            /* string json = File.ReadAllText(savePath); */
-
-        }
         string json = PlayerPrefs.GetString("inventoryemir", "0");
         if (json == "0") return;
         InventoryData data = JsonUtility.FromJson<InventoryData>(json);
