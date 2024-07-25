@@ -10,6 +10,7 @@ namespace UdoGames.NextGenDev
         [SerializeField] private GameObject[] _gfxs;
 
         int estimatedPrice;
+        Animator animator;
         int customerOffer;
 
         private void OnEnable()
@@ -24,15 +25,20 @@ namespace UdoGames.NextGenDev
             {
                 _gfxs[i].SetActive(i == randomGfx);
             }
+            animator = GetComponentInChildren<Animator>();
+            animator.SetBool("isWalking", false);
         }
 
-        public void MoveToPlayer(Vector3 targetPos)
+        public void MoveToPlayer(Vector3 targetPos, Vector3 euler)
         {
+            transform.eulerAngles = euler;
+            animator.SetBool("isWalking", true);
             transform.DOMove(targetPos, 1f).OnComplete(StartDeal);
         }
 
         private void StartDeal()
         {
+            animator.SetBool("isWalking", false);
             DealManager.Instance.StartDeal(this);
         }
 

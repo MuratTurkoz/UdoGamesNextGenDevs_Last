@@ -44,7 +44,7 @@ namespace UdoGames.NextGenDev
             customer = _customers[0];
             customer.transform.position = _customerStartTransform.position;
             customer.gameObject.SetActive(true);
-            customer.MoveToPlayer(_dealStandingTransform.position);
+            customer.MoveToPlayer(_dealStandingTransform.position, _dealStandingTransform.eulerAngles);
         }
 
         public int CustomerCount()
