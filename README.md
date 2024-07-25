@@ -47,11 +47,9 @@ Our main character is a shop owner who lives by the seaside. He is fond of comfo
 
 ## Theme
 
-  
- 
+The theme section, we thought of a summer theme since our game is underwater and about selling what we earn from underwater.
 
 
-## Story
 
 # Designs
 
