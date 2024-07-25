@@ -15,7 +15,7 @@ MonoBehaviour:
   level: 1
   prices: dc050000ac0d00007017000010270000
   upgradeName: Move Speed
-  icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: 7f7755ca910f6c74d92d86c31e0b8aab, type: 3}
   valueToUpgrade: {fileID: 11400000, guid: a9f6bc083567d3c479d1c1e2ed1d399c, type: 2}
   values:
   - 1

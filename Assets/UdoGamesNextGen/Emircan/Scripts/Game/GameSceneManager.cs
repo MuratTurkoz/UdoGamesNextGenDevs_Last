@@ -57,16 +57,16 @@ public class GameSceneManager : MonoBehaviour
         _loadingPanel.SetActive(true);
         float timer = 0;
 
+        for (int i = 0; i < _scenes.Length; i++)
+        {
+            _scenes[i].SetActive(i == sceneIndex);
+        }
+
         while (timer < _loadingTime)
         {
             timer += Time.deltaTime;
             _loadingBarImage.fillAmount = timer / _loadingTime;
             yield return null;
-        }
-
-        for (int i = 0; i < _scenes.Length; i++)
-        {
-            _scenes[i].SetActive(i == sceneIndex);
         }
 
         switch (sceneIndex)

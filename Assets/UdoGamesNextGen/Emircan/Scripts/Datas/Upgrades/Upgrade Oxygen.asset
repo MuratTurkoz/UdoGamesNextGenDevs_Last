@@ -15,6 +15,6 @@ MonoBehaviour:
   level: 1
   prices: f4010000d00700009411000010270000
   upgradeName: Oxygen
-  icon: {fileID: 21300000, guid: d75e7caf8d5d1d543af4abb46ae06de0, type: 3}
+  icon: {fileID: 21300000, guid: 4bbe6acfd74ab0a408c9d19d6ff72ef3, type: 3}
   valueToUpgrade: {fileID: 11400000, guid: 26b266776f251ca49afa553655c814c6, type: 2}
   values: 140000001e0000002d000000410000005a000000
