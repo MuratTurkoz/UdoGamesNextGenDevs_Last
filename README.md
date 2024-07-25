@@ -77,17 +77,48 @@ In the environmental design part, we asked our artist friends to design these ob
 
 
 ## Upgrades
-* Oksijen Geliştirmesi:
-  * Level 1: 500g -> +10sn oksijen
-  * Level 2: 2000g -> +15sn oksijen
-  * Level 3: 4500g -> +20sn oksijen
-  * Level 4: 10000g -> +25sn oksijen
-
+* Oxygen Upgrade
+  * Level 1: 500g -> +10sec Oxygen
+  * Level 2: 2000g -> +15sec Oxygen
+  * Level 3: 4500g -> +20sec Oxygen
+  * Level 4: 10000g -> +25sec Oxygen
+* Bag Upgrade:
+ * Level 1: 1000g -> +1 Capacity
+ * Level 2: 2500g -> +1 Capacity
+ * Level 3: 5000g -> +2 Capacity
+ * Level 4: 10000g -> +3 Capacity
+* Swimfin Upgrade:
+ * Level 1: 1500g -> +0.5 Speed
+ * Level 2: 3500g -> +0.5 Speed
+ * Level 3: 6000g -> +1 Speed
+ * Level 4: 10000g -> +1 Speed
+* New Territory:
+ * Section 2: 5000g
 
 ## Mechanics
+Our game features two main mechanics. The first is diving to find valuable items, and the second is trading these items. The game will start on the main screen in our shop, and through the necessary UIs, players will be able to choose to dive and start trading by taking in customers.
 
+<img src="Readme images/mekanik.png">
 
+## Diving and Item Finding
 
+To be able to sell items, we first need to possess them. Our character dives to find these items and encounters some obstacles underwater. Some of these obstacles are aggressive sea creatures, while others are problems arising from the inadequacy of our equipment.
+
+Oxygen: A resource that allows us to breathe underwater for a certain period. The capacity of our tank can be increased by leveling up or purchasing new tanks. If our oxygen runs out, we start to lose health gradually.
+
+Health: If our health drops to zero, the day restarts, and we lose our progress.
+
+Items: Valuable things that can be collected underwater and sold. Each has an approximate market value, and the trading mechanic works based on this value.
+
+Aggressive Fauna: Some underwater creatures are aggressive and can attack us, causing us to lose health/oxygen.
+
+Trading:
+
+This is the process we use to sell the items we find from the sea and earn money. As long as we have items in our inventory and have completed our daily item hunt, we can open our shop to customers. These items will have an estimated price, and by negotiating against the customer's offer, we will try to increase the profit we can make.
+
+Customers: NPCs who will buy our items. They will make an offer close to the approximate price of the item and want to buy one of the items in our inventory.
+
+Offer: If the price is increased reasonably and not excessively, customers will be likely to accept this new offer. However, if your new offer is far from the item's price, customers may get angry and leave the shop without making a purchase. In some offers, you might even lose money.
 #### Core Game Loop:
 
 
