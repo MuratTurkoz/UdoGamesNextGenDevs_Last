@@ -77,21 +77,31 @@ In the environmental design part, we asked our artist friends to design these ob
 
 
 ## Upgrades
+
+<img src="Readme images/image1.png">
+
 * Oxygen Upgrade
   * Level 1: 500g -> +10sec Oxygen
   * Level 2: 2000g -> +15sec Oxygen
   * Level 3: 4500g -> +20sec Oxygen
   * Level 4: 10000g -> +25sec Oxygen
+  
+<img src="Readme images/image.png">
+
 * Bag Upgrade:
   * Level 1: 1000g -> +1 Capacity
   * Level 2: 2500g -> +1 Capacity
   * Level 3: 5000g -> +2 Capacity
   * Level 4: 10000g -> +3 Capacity
+  
+<img src="Readme images/image12.png">
+
 * Swimfin Upgrade:
   * Level 1: 1500g -> +0.5 Speed
   * Level 2: 3500g -> +0.5 Speed
   * Level 3: 6000g -> +1 Speed
   * Level 4: 10000g -> +1 Speed
+  
 * New Territory:
   * Section 2: 5000g
 
@@ -99,6 +109,7 @@ In the environmental design part, we asked our artist friends to design these ob
 Our game features two main mechanics. The first is diving to find valuable items, and the second is trading these items. The game will start on the main screen in our shop, and through the necessary UIs, players will be able to choose to dive and start trading by taking in customers.
 
 <img src="Readme images/mekanik.png">
+<img src="Readme images/mekanik2.jpg">
 
 ### Diving and Item Finding
 
