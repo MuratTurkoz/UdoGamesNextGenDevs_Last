@@ -53,13 +53,20 @@ The theme section, we thought of a summer theme since our game is underwater and
 
 # Designs
 
+## Character Design
+- Our character's underwater preview
+<img src="Readme images/characters/ana-karakter-sualt.png">
+
+
+- Our character's preview in the shop
+<img src="Readme images/characters/ana-karakter-dukkan.png">
+
+
+
 ## Environment
 In the environmental design part, we asked our artist friends to design these objects because we would sell the items our character collected from underwater.
-<img width="100" height="100" src="Readme images/items/Aynapng.png">
 
-
-## Character Design
-- Player
+<img width="100" height="100" src="Readme images/items/Aynapng.png"><img width="100" height="100" src="Readme images/items/Elmaspng.png"><img width="100" height="100" src="Readme images/items/Incipng.png"><img width="100" height="100" src="Readme images/items/Kolye1.png"><img width="100" height="100" src="Readme images/items/Kolye2.png"><img width="100" height="100" src="Readme images/items/Kristalpng.png"><img width="100" height="100" src="Readme images/items/Kupepng.png"><img width="100" height="100" src="Readme images/items/Yuzuk1png.png"><img width="100" height="100" src="Readme images/items/Yuzuk2png.png">
 
 
 
