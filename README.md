@@ -77,7 +77,11 @@ In the environmental design part, we asked our artist friends to design these ob
 
 
 ## Upgrades
-
+* Oksijen Geliştirmesi:
+  * Level 1: 500g -> +10sn oksijen
+  * Level 2: 2000g -> +15sn oksijen
+  * Level 3: 4500g -> +20sn oksijen
+  * Level 4: 10000g -> +25sn oksijen
 
 
 ## Mechanics
