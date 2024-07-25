@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using UdoGames.NextGenDev;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class OxygenManager : MonoBehaviour
 {
+    public Int MaxOygen;
     public Slider oxygenBar;
-    public float oxygenAmount = 97f;
-    public float oxygenDepletionRate = 2f;
+    private float maxOxygenAmount = 20;
+    private float oxygenAmount;
+    private float oxygenDepletionRate = 1f;
     public bool isUnderwater = false;
     public bool isOxygenOut = false;
 
@@ -17,7 +20,26 @@ public class OxygenManager : MonoBehaviour
 
     void Start()
     {
+        ResetOxygen();
+    }
+
+    private void OnEnable() {
+        if (GameSceneManager.Instance)
+            GameSceneManager.Instance.OnPlayerEnteredOcean += ResetOxygen;
+    }
+
+    private void OnDisable() {
+        if (GameSceneManager.Instance)
+            GameSceneManager.Instance.OnPlayerEnteredOcean -= ResetOxygen;
+    }
+
+    public void ResetOxygen()
+    {
+        if (MaxOygen != null) maxOxygenAmount = MaxOygen.Value;
+        oxygenAmount = maxOxygenAmount;
         oxygenBar.value = 1f;
+        isOxygenOut = false;
+        oxygenDepletedMessageShown = false;
     }
 
     void Update()
@@ -33,9 +55,9 @@ public class OxygenManager : MonoBehaviour
         if (oxygenAmount > 0)
         {
             oxygenAmount -= oxygenDepletionRate * Time.deltaTime;
-            oxygenBar.value = oxygenAmount / 100f;
+            oxygenBar.value = oxygenAmount / maxOxygenAmount;
 
-            if (oxygenAmount <= 7f && !isOxygenOut)
+            if (oxygenAmount <= 5f && !isOxygenOut)
             {
                 isOxygenOut = true;
             }

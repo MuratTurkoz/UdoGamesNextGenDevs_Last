@@ -24,8 +24,27 @@ public class HealthManager : MonoBehaviour
 
     void Start()
     {
-        healthBar.value = 1f;
+        ResetHealth();
+    }
+
+    private void OnEnable() {
+        if (GameSceneManager.Instance)
+            GameSceneManager.Instance.OnPlayerEnteredOcean += ResetHealth;
+    }
+
+    private void OnDisable() {
+        if (GameSceneManager.Instance)
+            GameSceneManager.Instance.OnPlayerEnteredOcean -= ResetHealth;
+    }
+
+    private void ResetHealth()
+    {
+        isDecreasingHealth = false;
+        bloodEffectController.StopEffect();
+        healthAmount = 100;
+        healthBar.value = 1;
         currentHealthDecreaseRate = initialHealthDecreaseRate;
+        player.transform.tag = "Player";
     }
 
     void Update()
