@@ -111,7 +111,9 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
+  referencedClips:
+  - b6ea7a738e1cf88438cd93a100d3b55c
+  - fee93c636f5b8e94c91db92ce2f9fb20
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
