@@ -15,5 +15,4 @@ MonoBehaviour:
   level: 1
   prices: 88130000
   upgradeName: New Area
-  icon: {fileID: 21300000, guid: a1dc61e26ec6d4d46a7c2b269e0fd507, type: 3}
-  _areaLock: []
+  icon: {fileID: 21300000, guid: cdc62ac5aa434d744b710ae2e513fe29, type: 3}

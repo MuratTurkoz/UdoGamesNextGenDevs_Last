@@ -15,7 +15,7 @@ public class SerializableItem
     public SerializableItem(ItemSO item)
     {
         itemName = item.ItemName;
-        amount = item.collectableProperty.Amount;
+        amount = 1;
     }
 }
 

@@ -5685,11 +5685,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8584634180309161119}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1700, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2190646510479123494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9886,6 +9886,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _day: {fileID: 11400000, guid: 6fc80487eae05ab4aa88506f08d9c45a, type: 2}
   _weeks: {fileID: 11400000, guid: 3acb4c3fbdf2e6e4295010975612af46, type: 2}
+  rent: 300
 --- !u!1 &8818814508421366330
 GameObject:
   m_ObjectHideFlags: 0

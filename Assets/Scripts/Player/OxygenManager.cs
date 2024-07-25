@@ -11,7 +11,7 @@ public class OxygenManager : MonoBehaviour
     private float maxOxygenAmount = 20;
     private float oxygenAmount;
     private float oxygenDepletionRate = 1f;
-    public bool isUnderwater = false;
+    private bool isUnderwater = false;
     public bool isOxygenOut = false;
 
     public HealthManager healthManager;
@@ -21,16 +21,11 @@ public class OxygenManager : MonoBehaviour
     void Start()
     {
         ResetOxygen();
-    }
-
-    private void OnEnable() {
-        if (GameSceneManager.Instance)
-            GameSceneManager.Instance.OnPlayerEnteredOcean += ResetOxygen;
+        GameSceneManager.Instance.OnPlayerEnteredOcean += ResetOxygen;
     }
 
     private void OnDisable() {
-        if (GameSceneManager.Instance)
-            GameSceneManager.Instance.OnPlayerEnteredOcean -= ResetOxygen;
+        isUnderwater = false;
     }
 
     public void ResetOxygen()
@@ -40,6 +35,7 @@ public class OxygenManager : MonoBehaviour
         oxygenBar.value = 1f;
         isOxygenOut = false;
         oxygenDepletedMessageShown = false;
+        isUnderwater = true;
     }
 
     void Update()
@@ -57,7 +53,7 @@ public class OxygenManager : MonoBehaviour
             oxygenAmount -= oxygenDepletionRate * Time.deltaTime;
             oxygenBar.value = oxygenAmount / maxOxygenAmount;
 
-            if (oxygenAmount <= 5f && !isOxygenOut)
+            if (oxygenAmount <= 2f && !isOxygenOut)
             {
                 isOxygenOut = true;
             }
