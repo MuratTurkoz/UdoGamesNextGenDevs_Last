@@ -55,11 +55,11 @@ The theme section, we thought of a summer theme since our game is underwater and
 
 ## Character Design
 - Our character's underwater preview
-<img src="Readme images/characters/ana-karakter-sualt.png">
+<img width="350" height="435" src="Readme images/characters/ana-karakter-sualt.png">
 
 
 - Our character's preview in the shop
-<img src="Readme images/characters/ana-karakter-dukkan.png">
+<img width="388" height="270" src="Readme images/characters/ana-karakter-dukkan.png">
 
 
 
