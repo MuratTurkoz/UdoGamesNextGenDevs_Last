@@ -64,7 +64,7 @@ namespace UdoGames.NextGenDev
             }
         }
 
-        private int rent = 300;
+        [SerializeField] private int rent = 300;
 
         private void EndWeek()
         {
