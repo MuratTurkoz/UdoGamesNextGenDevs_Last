@@ -25,3 +25,61 @@
 * [Emircan İsanç](https://www.linkedin.com/in/emircan-isanc/)
 * [Mert Çakır](https://www.linkedin.com/in/mert-cakir0)
 
+
+## Summary
+
+
+## How to play
+
+
+## Resources
+
+
+---
+
+# Development process
+
+* The name of the game: Ocean Trader
+* The team working on it: Udo Games NextGen Devs 2024 – Team 2
+* Project duration: 1 week
+
+
+
+## Theme
+
+  
+ 
+
+
+## Story
+
+# Designs
+
+## Character Design
+- Player
+
+
+
+
+## Upgrades
+
+
+
+## Mechanics
+
+
+
+#### Core Game Loop:
+
+
+#### Basic Definition of Main Mechanic: 
+
+
+#### Game Object and Attributes: 
+
+
+
+#### Character Upgrades
+
+
+
