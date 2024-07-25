@@ -29,11 +29,9 @@
 ## Summary
 Our main character is a shop owner who lives by the seaside. He is fond of comfort but also loves the sea. To make a living, he searches for valuable items underwater and tries to sell them to people who visit his shop. With the money he earns, he pays his rent and buys equipment to dive deeper and explore the sea more extensively.
 
-## How to play
-
 
 ## Resources
-
+Drive link will be added in future
 
 ---
 
