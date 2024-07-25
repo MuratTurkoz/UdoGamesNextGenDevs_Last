@@ -83,15 +83,15 @@ In the environmental design part, we asked our artist friends to design these ob
   * Level 3: 4500g -> +20sec Oxygen
   * Level 4: 10000g -> +25sec Oxygen
 * Bag Upgrade:
- * Level 1: 1000g -> +1 Capacity
- * Level 2: 2500g -> +1 Capacity
- * Level 3: 5000g -> +2 Capacity
- * Level 4: 10000g -> +3 Capacity
+  * Level 1: 1000g -> +1 Capacity
+  * Level 2: 2500g -> +1 Capacity
+  * Level 3: 5000g -> +2 Capacity
+  * Level 4: 10000g -> +3 Capacity
 * Swimfin Upgrade:
- * Level 1: 1500g -> +0.5 Speed
- * Level 2: 3500g -> +0.5 Speed
- * Level 3: 6000g -> +1 Speed
- * Level 4: 10000g -> +1 Speed
+  * Level 1: 1500g -> +0.5 Speed
+  * Level 2: 3500g -> +0.5 Speed
+  * Level 3: 6000g -> +1 Speed
+  * Level 4: 10000g -> +1 Speed
 * New Territory:
  * Section 2: 5000g
 
@@ -112,7 +112,7 @@ Items: Valuable things that can be collected underwater and sold. Each has an ap
 
 Aggressive Fauna: Some underwater creatures are aggressive and can attack us, causing us to lose health/oxygen.
 
-Trading:
+## Trading:
 
 This is the process we use to sell the items we find from the sea and earn money. As long as we have items in our inventory and have completed our daily item hunt, we can open our shop to customers. These items will have an estimated price, and by negotiating against the customer's offer, we will try to increase the profit we can make.
 
