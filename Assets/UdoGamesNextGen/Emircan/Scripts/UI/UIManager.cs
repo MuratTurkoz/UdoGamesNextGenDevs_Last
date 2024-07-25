@@ -67,6 +67,8 @@ public class UIManager : MonoBehaviour
         _resetDayBtn.onClick.AddListener(ResetStartDay);
 
         _rentTMP.SetText("Rent: " + DayManager.Instance.Rent);
+
+        _restartAllGameBtn.onClick.AddListener(RestartAllGame);
     }
 
     private void ToggleSound()
@@ -189,7 +191,7 @@ public class UIManager : MonoBehaviour
     {
         _dailyEarningsPanel.SetActive(false);
 
-        if (CurrencyManager.Instance.Gold >= 0)
+        if (DayManager.Instance.IsGameEnd)
         {
             ResetUIToStart();
         }

@@ -52,6 +52,18 @@ public class BaseInventory : MonoBehaviour
         GameSceneManager.Instance.OnPlayerEnteredMarket += OnOceanEnd;
     }
 
+    /* private void OnEnable() {
+        foreach (var item in _allItemsList)
+        {
+            item.collectableProperty.isCollected = false;
+            item.collectableProperty.isSaved = false;
+        }
+    } */
+
+    private void OnDisable() {
+        
+    }
+
     private void ResetCount()
     {
         itemCount = 0;

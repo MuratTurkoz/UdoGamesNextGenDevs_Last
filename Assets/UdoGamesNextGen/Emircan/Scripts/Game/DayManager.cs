@@ -12,6 +12,8 @@ namespace UdoGames.NextGenDev
         [SerializeField] private Int _day;
         [SerializeField] private Int _weeks;
 
+        public bool IsGameEnd;
+
         private const string DAY_SAVE_KEY = "daySave";
         private const string WEEK_SAVE_KEY = "weekSave";
 
@@ -70,6 +72,7 @@ namespace UdoGames.NextGenDev
         {
             OnWeekEnd?.Invoke();
             _weeks.Value++;
+            if (CurrencyManager.Instance.Gold < rent * _weeks.Value) IsGameEnd = true;
             CurrencyManager.Instance.ReduceGold(rent * _weeks.Value, "Rent");
             UIManager.Instance.ShowDailyEarnings();
             SaveDays();

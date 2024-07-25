@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
-    public Slider healthBar;
+    public Image healthBar;
     public GameObject player;
     public BloodEffectController bloodEffectController;
     public float healthAmount = 100f;
@@ -43,7 +43,7 @@ public class HealthManager : MonoBehaviour
         isDecreasingHealth = false;
         /* bloodEffectController.StopEffect(); */
         healthAmount = 100;
-        healthBar.value = 1;
+        healthBar.fillAmount = 1;
         currentHealthDecreaseRate = initialHealthDecreaseRate;
         player.transform.tag = "Player";
     }
@@ -87,8 +87,9 @@ public class HealthManager : MonoBehaviour
 
     public void GetDamage(float damage)
     {
+        DamageIndicatorManager.Instance.ShowDamage(player.transform.position, damage, DamageIndicatorType.PlayerIndicator);
         healthAmount -= damage;
-        healthBar.value = healthAmount / 100f;
+        healthBar.fillAmount = healthAmount / 100f;
         bloodEffectController.StartEffectJustOne();
 
         if(healthAmount <=0)
@@ -104,7 +105,8 @@ public class HealthManager : MonoBehaviour
         {
             yield return new WaitForSeconds(checkInterval);
             healthAmount -= currentHealthDecreaseRate;
-            healthBar.value = healthAmount / 100f;
+            DamageIndicatorManager.Instance.ShowDamage(player.transform.position + new Vector3(0, 0.5f, 0), (int)currentHealthDecreaseRate, DamageIndicatorType.PlayerIndicator);
+            healthBar.fillAmount = healthAmount / 100f;
 
             if (healthAmount <= 0)
             {
