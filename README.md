@@ -93,14 +93,14 @@ In the environmental design part, we asked our artist friends to design these ob
   * Level 3: 6000g -> +1 Speed
   * Level 4: 10000g -> +1 Speed
 * New Territory:
- * Section 2: 5000g
+  * Section 2: 5000g
 
 ## Mechanics
 Our game features two main mechanics. The first is diving to find valuable items, and the second is trading these items. The game will start on the main screen in our shop, and through the necessary UIs, players will be able to choose to dive and start trading by taking in customers.
 
 <img src="Readme images/mekanik.png">
 
-## Diving and Item Finding
+### Diving and Item Finding
 
 To be able to sell items, we first need to possess them. Our character dives to find these items and encounters some obstacles underwater. Some of these obstacles are aggressive sea creatures, while others are problems arising from the inadequacy of our equipment.
 
@@ -112,7 +112,7 @@ Items: Valuable things that can be collected underwater and sold. Each has an ap
 
 Aggressive Fauna: Some underwater creatures are aggressive and can attack us, causing us to lose health/oxygen.
 
-## Trading:
+### Trading:
 
 This is the process we use to sell the items we find from the sea and earn money. As long as we have items in our inventory and have completed our daily item hunt, we can open our shop to customers. These items will have an estimated price, and by negotiating against the customer's offer, we will try to increase the profit we can make.
 
@@ -121,15 +121,4 @@ Customers: NPCs who will buy our items. They will make an offer close to the app
 Offer: If the price is increased reasonably and not excessively, customers will be likely to accept this new offer. However, if your new offer is far from the item's price, customers may get angry and leave the shop without making a purchase. In some offers, you might even lose money.
 #### Core Game Loop:
 
-
-#### Basic Definition of Main Mechanic: 
-
-
-#### Game Object and Attributes: 
-
-
-
-#### Character Upgrades
-
-
-
+The game will progress in days, and these days will have a specific cycle. At the beginning of the day, diving will be done to find valuable items, and the rest of the day will be spent selling these items in our shop. Additionally, through the shop, the player can purchase better equipment for themselves, allowing them to dive deeper and find more valuable items. This way, the player can earn more profit and invest more in themselves.
