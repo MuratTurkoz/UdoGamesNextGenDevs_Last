@@ -62,6 +62,10 @@ The theme section, we thought of a summer theme since our game is underwater and
 <img width="388" height="270" src="Readme images/characters/ana-karakter-dukkan.png">
 
 
+- Customers
+
+<img width="300" height="200" src="Readme images/characters/musteri-1.png"><img width="300" height="200" src="Readme images/characters/musteri-2.png"><img width="300" height="200" src="Readme images/characters/musteri-3.png">
+
 
 ## Environment
 In the environmental design part, we asked our artist friends to design these objects because we would sell the items our character collected from underwater.
