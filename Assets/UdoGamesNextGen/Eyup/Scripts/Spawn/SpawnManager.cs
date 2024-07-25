@@ -71,6 +71,7 @@ public class SpawnManager : MonoBehaviour
 
     public void AddArea()
     {
+
         foreach (var item in collectiblePrefab_L2)
         {
             collectiblePrefab_L1.Add(item);
@@ -81,6 +82,8 @@ public class SpawnManager : MonoBehaviour
         {
             SpawnCollectible();
         }
+
+
     }
 
     bool IsPositionTooClose(Vector3 position)

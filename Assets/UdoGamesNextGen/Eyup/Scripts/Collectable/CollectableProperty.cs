@@ -27,7 +27,7 @@ public class CollectableProperty : ScriptableObject
     public enum Frequency
     {
         High,
-        Average, // Düzeltilmiş yazım hatası
+        Average, 
         Low
     }
     public Frequency frequency;
@@ -35,6 +35,17 @@ public class CollectableProperty : ScriptableObject
     private async void OnEnable() 
     {
         await SaveWhenEnable();
+    }
+
+    // Eşyanın hepsini markete taşıma işlemei
+    public int GetAllAmountForMarket()
+    {
+        var currentAmount = Amount;
+        Amount =0;
+        SaveInventory();
+        DeleteInventory();
+
+        return currentAmount;
     }
 
     public int GetCost()
@@ -101,7 +112,7 @@ public class CollectableProperty : ScriptableObject
 
     private async Task SaveWhenEnable()
     {
-        await Task.Delay(100); // Delay added to simulate some async work
+        await Task.Delay(100); 
         GetAll();
     }
 

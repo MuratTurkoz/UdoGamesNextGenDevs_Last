@@ -12,6 +12,11 @@ public class BloodEffectController : MonoBehaviour
         StartCoroutine(FadeInAndOut());
     }
 
+    public void StartEffectJustOne()
+    {
+        StartCoroutine(FadeInAndOutJustOne());
+    }
+
     public void StopEffect()
     {
         StopCoroutine(FadeInAndOut());
@@ -30,6 +35,15 @@ public class BloodEffectController : MonoBehaviour
             yield return StartCoroutine(Fade(1f, 0f, fadeDuration));
         }
     }
+
+    public IEnumerator FadeInAndOutJustOne()
+    {
+        yield return StartCoroutine(Fade(0f, 1f, fadeDuration));
+        yield return StartCoroutine(Fade(1f, 0f, fadeDuration));
+
+    }
+
+
 
     private IEnumerator Fade(float startAlpha, float endAlpha, float duration)
     {

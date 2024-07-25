@@ -59,6 +59,19 @@ public class HealthManager : MonoBehaviour
         }
     }
 
+    public void GetDamage(float damage)
+    {
+        healthAmount -= damage;
+        healthBar.value = healthAmount / 100f;
+        bloodEffectController.StartEffectJustOne();
+
+        if(healthAmount <=0)
+        {
+            Died();
+        }
+
+    }
+
     private IEnumerator DecreaseHealthCoroutine()
     {
         while (true)

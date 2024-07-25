@@ -35,14 +35,6 @@ public class Swimming : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other) 
-    {
-        if (other.gameObject.tag == "Water") 
-        {
-            isSwimming = false;
-        }
-    }
-
     public void PlayerDied()
     {
         isSwimming = false;
