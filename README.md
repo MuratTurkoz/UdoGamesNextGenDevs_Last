@@ -130,6 +130,9 @@ This is the process we use to sell the items we find from the sea and earn money
 Customers: NPCs who will buy our items. They will make an offer close to the approximate price of the item and want to buy one of the items in our inventory.
 
 Offer: If the price is increased reasonably and not excessively, customers will be likely to accept this new offer. However, if your new offer is far from the item's price, customers may get angry and leave the shop without making a purchase. In some offers, you might even lose money.
+
+---
+
 ### Core Game Loop:
 
 The game will progress in days, and these days will have a specific cycle. At the beginning of the day, diving will be done to find valuable items, and the rest of the day will be spent selling these items in our shop. Additionally, through the shop, the player can purchase better equipment for themselves, allowing them to dive deeper and find more valuable items. This way, the player can earn more profit and invest more in themselves.
