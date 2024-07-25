@@ -1,7 +1,7 @@
 # Ocean Trader
 
 
-<img src="Readme images/backround.png">
+<img src="Readme images/shine.png">
 
 ---
 
