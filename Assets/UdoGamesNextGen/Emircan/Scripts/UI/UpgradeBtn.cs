@@ -39,6 +39,7 @@ public class UpgradeBtn : MonoBehaviour
         _upgradeBaseSO.Upgrade();
         UpdateVisual();
         UpgradeManager.Instance.UpdateAllVisual();
+        _upgradeBaseSO.Save();
     }
 
     public void UpdateVisual()

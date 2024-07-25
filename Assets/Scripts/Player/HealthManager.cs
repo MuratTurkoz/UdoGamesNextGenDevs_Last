@@ -74,6 +74,10 @@ public class HealthManager : MonoBehaviour
 
         foreach (var item in collectableProperties)
         {
+            for (int i = 0; i < item.Amount; i++)
+            {
+                BaseInventory.Instance.RemoveItem(item.itemSO);
+            }
             item.DeleteInventory(); // öldükten sonra tüm envanter siliniyor
         }
     }

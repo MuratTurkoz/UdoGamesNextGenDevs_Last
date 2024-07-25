@@ -12,7 +12,7 @@ namespace UdoGames.NextGenDev
 
         public override void Load()
         {
-            level = 1; // TEMP
+            level = PlayerPrefs.GetInt(upgradeName, 1);
             valueToUpgrade.Value = values[level - 1];
         }
 

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemName: Silver Ring
   EstimatedPrice: 100
-  Icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  collectableProperty: {fileID: 11400000, guid: 59ad78240f6b9e646a5e160fc6af5e14, type: 2}

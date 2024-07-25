@@ -14,7 +14,12 @@ public abstract class UpgradeBaseSO : ScriptableObject
 
     public virtual void Load()
     {
-        level = 1; // TEMP
+        level = PlayerPrefs.GetInt(upgradeName, 1);
+    }
+
+    public void Save()
+    {
+        PlayerPrefs.SetInt(upgradeName, level);
     }
 
     public void ReducePrice()
@@ -32,6 +37,6 @@ public abstract class UpgradeBaseSO : ScriptableObject
     }
     public bool CanLevelUpMore()
     {
-        return level < prices.Length;
+        return level < prices.Length + 1;
     }
 }

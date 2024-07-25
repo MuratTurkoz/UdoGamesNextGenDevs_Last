@@ -7,6 +7,10 @@ public class BloodEffectController : MonoBehaviour
     public Image bloodEffectImage;
     public float fadeDuration = 2.0f; // Saydamlığı değiştirme süresi
 
+    private void OnEnable() {
+        StopEffect();
+    }
+
     public void StartEffect()
     {
         StartCoroutine(FadeInAndOut());
@@ -23,7 +27,7 @@ public class BloodEffectController : MonoBehaviour
         StopCoroutine(Fade(0f, 1f, fadeDuration));
         StopCoroutine(Fade(1f, 0f, fadeDuration));
         Color color = bloodEffectImage.color;
-        color.a = 1f;
+        color.a = 0f;
         bloodEffectImage.color = color;
     }
 

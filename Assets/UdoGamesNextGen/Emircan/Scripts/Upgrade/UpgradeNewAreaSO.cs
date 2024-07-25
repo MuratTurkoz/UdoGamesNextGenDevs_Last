@@ -17,10 +17,10 @@ public class UpgradeNewAreaSO : UpgradeBaseSO
 
     public override void Load()
     {
-        level = 1;
+        level = PlayerPrefs.GetInt(upgradeName, 1);
         for (int i = 0; i < AreaManager.Instance.AreaLocks.Length; i++)
         {
-            AreaManager.Instance.AreaLocks[i].SetActive(i <= (level - 2));
+            AreaManager.Instance.AreaLocks[i].SetActive(i > (level - 2));
         }
     }
 

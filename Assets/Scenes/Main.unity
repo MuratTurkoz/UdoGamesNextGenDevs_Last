@@ -1683,6 +1683,7 @@ MonoBehaviour:
   - {fileID: 1691909143}
   - {fileID: 1293277455}
   - {fileID: 1495620148}
+  nullSprite: {fileID: 21300000, guid: 82fcb30ae5c9ffe4cb558c278ba56988, type: 3}
 --- !u!1 &328106327
 GameObject:
   m_ObjectHideFlags: 0
@@ -1863,7 +1864,7 @@ MonoBehaviour:
   - {fileID: 7025373334354429429, guid: dec67a3b5580f1b4fb249b1cff6c2816, type: 3}
   - {fileID: 1330259665119528863, guid: ca9e5bc2e96074943b9bcbc70f8ca3a3, type: 3}
   - {fileID: 4724998080962489794, guid: 0e9a7002194d454458a32c799828726b, type: 3}
-  initialSpawnCount: 10
+  initialSpawnCount: 15
   respawnTime: 1
   minSpawnDistance: 5
   mainCamera: {fileID: 1590271635}
@@ -1917,9 +1918,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea6e1aec72da3a041aa5ed6039925150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inventoryItems:
+  _allItemsList:
   - {fileID: 11400000, guid: c4c727008a9412944997ec14f88fe5bd, type: 2}
+  - {fileID: 11400000, guid: 4b1e082c0c8f75148998ddbc8c35d82a, type: 2}
+  - {fileID: 11400000, guid: 8e21428ca5e45284487070f699c9255d, type: 2}
   - {fileID: 11400000, guid: 58d81f24f1c9cfb499f96b010c459faa, type: 2}
+  - {fileID: 11400000, guid: 31f038a8d66b14848b820bf5107d4e40, type: 2}
+  - {fileID: 11400000, guid: eec20f2560cb3b84ea7f68d8422a960a, type: 2}
+  - {fileID: 11400000, guid: 1b83f6a638c5818449af6d800d1b798e, type: 2}
+  - {fileID: 11400000, guid: 25fd2e7b3db577441afd1eca44c96590, type: 2}
+  - {fileID: 11400000, guid: ad58cf6f84c82bc4ea65f44d3ab77a72, type: 2}
+  BackpackLimit: {fileID: 11400000, guid: 18517dfd7ffdba94f854f8ff1b1efa09, type: 2}
 --- !u!4 &362077521
 Transform:
   m_ObjectHideFlags: 0
@@ -7535,17 +7544,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3529791278055430611, guid: 4ce3fd46f9139af4f9a8ec980ee0cb80, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5638148955546262711, guid: 4ce3fd46f9139af4f9a8ec980ee0cb80, type: 3}
       propertyPath: m_Name
       value: Base UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 5638148955546262711, guid: 4ce3fd46f9139af4f9a8ec980ee0cb80, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6965070700806546210, guid: 4ce3fd46f9139af4f9a8ec980ee0cb80, type: 3}
       propertyPath: _dealStandingTransform

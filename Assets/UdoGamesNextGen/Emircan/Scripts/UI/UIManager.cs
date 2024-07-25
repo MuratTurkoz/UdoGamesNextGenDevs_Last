@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set;}
 
+    [SerializeField] private GameObject _generalPanel;
     [SerializeField] private GameObject _upgradePanel;
     [SerializeField] private GameObject _playerShopPanel;
     [SerializeField] private GameObject _oceanPanel;
@@ -47,8 +48,10 @@ public class UIManager : MonoBehaviour
 
         _oceanPanel.SetActive(false);
         _playerShopPanel.SetActive(true);
+        _generalPanel.SetActive(true);
         _startDayBtn.gameObject.SetActive(false);
         _endDayBtn.gameObject.SetActive(false);
+        GameSceneManager.Instance.OnPlayerEnteredMarket += OnMarketOpened;
     }
 
     private void ToggleSound()
@@ -71,18 +74,23 @@ public class UIManager : MonoBehaviour
 
     private void StartDive()
     {
+        _generalPanel.SetActive(false);
         _diveBtn.gameObject.SetActive(false);
         _playerShopPanel.SetActive(false);
         _oceanPanel.SetActive(true);
         GameSceneManager.Instance.ChangeScene(GameScene.Ocean);
     }
 
+    private void OnMarketOpened()
+    {
+        _generalPanel.SetActive(true);
+        _playerShopPanel.SetActive(true);
+        _startDayBtn.gameObject.SetActive(true);
+    }
+
     private void ReturnShop()
     {
         _oceanPanel.SetActive(false);
-        _playerShopPanel.SetActive(true);
-        _startDayBtn.gameObject.SetActive(true);
-
         CameraController.Instance.SetCameraTopdown();
         GameSceneManager.Instance.ChangeScene(GameScene.Market);
     }
