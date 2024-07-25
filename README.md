@@ -55,7 +55,8 @@ The theme section, we thought of a summer theme since our game is underwater and
 
 ## Environment
 In the environmental design part, we asked our artist friends to design these objects because we would sell the items our character collected from underwater.
-<img width="100" height="100" src="Readme images/items/Aynapng.png">
+
+<img width="100" height="100" src="Readme images/items/Aynapng.png"><img width="100" height="100" src="Readme images/items/Elmaspng.png"><img width="100" height="100" src="Readme images/items/Incipng.png"><img width="100" height="100" src="Readme images/items/Kolye1.png">
 
 
 ## Character Design
