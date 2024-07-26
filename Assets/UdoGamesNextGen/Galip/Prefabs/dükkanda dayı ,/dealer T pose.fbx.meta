@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 934027f8192c48447bd76e9b497ea21c
+guid: ba7eb6bd928589e478890c63ba6b5458
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -16,7 +16,8 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'Hips' not found\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -31,36 +32,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: mixamo.com
-      takeName: mixamo.com
-      internalID: -203655887218126122
-      firstFrame: 0
-      lastFrame: 49
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -106,14 +78,17 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - 407d27020a4104e4facb21f92145b3b5
-  - 6c8752deba45a9a49bcb60af431d3fbe
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: dealer T pose(Clone)
+      parentName: 
+      position: {x: -0.00000005354443, y: 0.00000025361894, z: -0.000000022947633}
+      rotation: {x: -0.000000037748954, y: 1.1754944e-38, z: -4.440892e-16, w: 1}
+      scale: {x: 102.665886, y: 102.665886, z: 102.665886}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
