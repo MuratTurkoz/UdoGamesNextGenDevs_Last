@@ -83,6 +83,7 @@ namespace UdoGames.NextGenDev
             _currentGold.Value -= delta;
             _currentGold.Value = Mathf.Max(0, _currentGold.Value);
             /* SaveGold(); */
+            SaveGold();
         }
     }
 }
