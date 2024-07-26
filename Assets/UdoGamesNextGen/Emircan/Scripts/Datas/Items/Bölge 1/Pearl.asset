@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c577fa8bffc1fe947b8b4d1873682e09, type: 3}
   m_Name: Pearl
   m_EditorClassIdentifier: 
-  ItemName: Silver Ring
+  ItemName: Pearl
   EstimatedPrice: 150
   collectableProperty: {fileID: 11400000, guid: e72371e540e67f04185023c06b4b812d, type: 2}
