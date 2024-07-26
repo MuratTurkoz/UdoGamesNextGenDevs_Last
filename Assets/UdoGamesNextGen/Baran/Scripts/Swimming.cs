@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine.Utility;
+using IgnuxNex.SpaceConqueror;
 using UdoGames.NextGenDev;
 using UnityEngine;
 
@@ -14,24 +15,28 @@ public class Swimming : MonoBehaviour
     private Rigidbody myRigidBody;
     public Animator myAnimator;
     public FixedJoystick fixedJoystick;
+    public Int distanceTravelled;
     public float turnSpeed = 5f; // Yumuşak dönüş için bir hız değeri
     public GameObject playerBody; // Oyuncunun gövdesini temsil eden GameObject
 
     public Transform StartTransform;
+    private float totalDistanceMoved;
 
     // Start is called before the first frame update
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody>();
-/*         ResetPosition(); */
+        /*         ResetPosition(); */
         GameSceneManager.Instance.OnPlayerEnteredOcean += ResetPosition;
     }
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
         fixedJoystick.gameObject.SetActive(false);
     }
 
-    private void OnDestroy() {
+    private void OnDestroy()
+    {
         if (GameSceneManager.Instance)
             GameSceneManager.Instance.OnPlayerEnteredOcean -= ResetPosition;
     }
@@ -53,9 +58,9 @@ public class Swimming : MonoBehaviour
         Swim();
     }
 
-    private void OnTriggerEnter(Collider other) 
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Water") 
+        if (other.gameObject.tag == "Water")
         {
             isSwimming = true;
         }
@@ -68,18 +73,18 @@ public class Swimming : MonoBehaviour
         myAnimator.SetBool("isDied", true);
     }
 
-    private void Swim() 
+    private void Swim()
     {
-        if (isSwimming) 
+        if (isSwimming)
         {
-            myRigidBody.useGravity = false;    
+            myRigidBody.useGravity = false;
 
-            float xInput = fixedJoystick.Horizontal;   
+            float xInput = fixedJoystick.Horizontal;
             float yInput = fixedJoystick.Vertical;
 
             Vector3 targetVelocity = myRigidBody.velocity;
 
-            if (xInput == 0 && yInput == 0) 
+            if (xInput == 0 && yInput == 0)
             {
                 if (myRigidBody.velocity.magnitude < 1)
                 {
@@ -89,8 +94,8 @@ public class Swimming : MonoBehaviour
                 // No player input, apply vertical resonance movement
                 float resonanceY = amplitude * Mathf.Sin(Time.time * frequency);
                 targetVelocity = new Vector3(0, resonanceY, 0);
-            } 
-            else 
+            }
+            else
             {
                 // Player input detected, move accordingly
                 float xValue = xInput * (swimSpeed + (paletMoveSpeed != null ? paletMoveSpeed.Value : 0));
@@ -101,11 +106,11 @@ public class Swimming : MonoBehaviour
 
                 // Determine the target rotation based on input direction
                 Quaternion targetRotation = Quaternion.identity;
-                if (xInput > 0) 
+                if (xInput > 0)
                 {
                     targetRotation = Quaternion.Euler(0, 90, 0);
-                } 
-                else if (xInput < 0) 
+                }
+                else if (xInput < 0)
                 {
                     targetRotation = Quaternion.Euler(0, -90, 0);
                 }
@@ -115,11 +120,19 @@ public class Swimming : MonoBehaviour
             }
 
             // Smoothly transition to the target velocity
+            Vector3 startPosition = transform.position;
+            // Apply movement
             myRigidBody.velocity = Vector3.Lerp(myRigidBody.velocity, targetVelocity, Time.deltaTime * 2.5f);
-        } 
-        else 
+            Vector3 endPosition = transform.position;
+            totalDistanceMoved += Vector3.Distance(startPosition, endPosition);
+            int emircan = Mathf.CeilToInt(totalDistanceMoved);
+            if (emircan == 0) return;
+            AchievementController.Instance.CalculateTravellerAchievement(emircan);
+            totalDistanceMoved -= emircan;
+        }
+        else
         {
-            myRigidBody.useGravity = true; 
+            myRigidBody.useGravity = true;
         }
     }
 }

@@ -45,6 +45,7 @@ public class CollectableObject : MonoBehaviour
                 else
                     AudioManager.Instance.PlayCollectSoundAlt(transform.position);
                 BaseInventory.Instance.AddItem(itemProperty.itemSO);
+                AchievementController.Instance.CalculateCollectedAchievement(1);
                 LogManager.Instance.ShowMessage(itemProperty.itemSO.ItemName + " is collected!");
                 OnCollected?.Invoke(gameObject);
                 itemProperty.isCollected = true;
