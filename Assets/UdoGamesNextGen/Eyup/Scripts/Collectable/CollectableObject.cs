@@ -40,6 +40,10 @@ public class CollectableObject : MonoBehaviour
         {
             if (BaseInventory.Instance.IsThereAnySpace())
             {
+                if (UnityEngine.Random.Range(0, 2) == 0)
+                    AudioManager.Instance.PlayCollectSound(transform.position);
+                else
+                    AudioManager.Instance.PlayCollectSoundAlt(transform.position);
                 BaseInventory.Instance.AddItem(itemProperty.itemSO);
                 LogManager.Instance.ShowMessage(itemProperty.itemSO.ItemName + " is collected!");
                 OnCollected?.Invoke(gameObject);

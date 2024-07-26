@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using TMPro;
 using UdoGames.NextGenDev;
 using UnityEngine;
 
@@ -28,6 +29,8 @@ public class InventoryData
 public class BaseInventory : MonoBehaviour
 {
     public static BaseInventory Instance { get; private set; }
+
+    [SerializeField] private TextMeshProUGUI _inGameBackpackTMP;
 
     [SerializeField] private List<ItemSO> _allItemsList;
     public Int BackpackLimit;
@@ -65,13 +68,19 @@ public class BaseInventory : MonoBehaviour
         }
     } */
 
-    private void OnDisable() {
+    /* private void OnDisable() {
         
+    } */
+
+    private void SetInGameBackpackCount()
+    {
+        _inGameBackpackTMP.SetText(itemCount + " / " + BackpackLimit.Value);
     }
 
     private void ResetCount()
     {
         itemCount = 0;
+        SetInGameBackpackCount();
         foreach (var item in _allItemsList)
         {
             item.collectableProperty.ClearSave();
@@ -91,7 +100,11 @@ public class BaseInventory : MonoBehaviour
     private void Load()
     {
         string json = PlayerPrefs.GetString("inventoryemir", "0");
-        if (json == "0") return;
+        if (json == "0")
+        {
+            SetItemCount();
+            return;
+        }
         InventoryData data = JsonUtility.FromJson<InventoryData>(json);
 
         _inventoryItems.Clear();
@@ -137,6 +150,7 @@ public class BaseInventory : MonoBehaviour
     public void AddItem(ItemSO item)
     {
         itemCount++;
+        SetInGameBackpackCount();
         _inventoryItems.Add(item);
     }
 
@@ -145,6 +159,7 @@ public class BaseInventory : MonoBehaviour
         _inventoryItems.Remove(itemSO);
         SetItemCount();
         itemCount--;
+        SetInGameBackpackCount();
         /* int amount = Mathf.Max(0, itemSO.collectableProperty.Amount - 1);
         itemSO.collectableProperty.Amount = amount;
         if (amount <= 0)

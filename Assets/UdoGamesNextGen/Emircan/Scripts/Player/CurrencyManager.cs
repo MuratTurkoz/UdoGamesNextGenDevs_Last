@@ -58,6 +58,7 @@ namespace UdoGames.NextGenDev
 
         public void AddGold(int delta, string log)
         {
+            AudioManager.Instance.PlayCoinSound();
             _currencyLogs.Add(new CurrencyLog(log, delta));
             deltaMoney = delta;
             _moneyIconManager.ShowMoneyIcons(UpdateMoney);

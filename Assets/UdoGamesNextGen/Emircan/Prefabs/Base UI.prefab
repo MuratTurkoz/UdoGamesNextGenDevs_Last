@@ -1212,6 +1212,7 @@ GameObject:
   - component: {fileID: 4623995780599712053}
   - component: {fileID: 7674635117301068704}
   - component: {fileID: 3899259194501071043}
+  - component: {fileID: 8233901068846558873}
   m_Layer: 5
   m_Name: Btn Upper Price
   m_TagString: Untagged
@@ -1320,6 +1321,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8233901068846558873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640235585697707404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b7d8453012a94f49b2e844d156cd25d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &774963720884220897
 GameObject:
   m_ObjectHideFlags: 0
@@ -9456,6 +9469,8 @@ MonoBehaviour:
   _itemNameTMP: {fileID: 5066000808175035242}
   _itemEstimatedPriceTMP: {fileID: 3507702472328926211}
   _itemIcon: {fileID: 5066753894227401494}
+  _upperBtn: {fileID: 8233901068846558873}
+  _lowerBtn: {fileID: 4078852728601194096}
   _dealItemPanel: {fileID: 8881080767628449021}
   _acceptOfferTexts:
   - Alright, we can agree on this price
@@ -9735,6 +9750,7 @@ GameObject:
   - component: {fileID: 1675272083674490648}
   - component: {fileID: 5213010855660090521}
   - component: {fileID: 869656921768210913}
+  - component: {fileID: 4078852728601194096}
   m_Layer: 5
   m_Name: Btn Lower Price
   m_TagString: Untagged
@@ -9843,6 +9859,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4078852728601194096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7184131752238857446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b7d8453012a94f49b2e844d156cd25d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7696997474149626476
 GameObject:
   m_ObjectHideFlags: 0

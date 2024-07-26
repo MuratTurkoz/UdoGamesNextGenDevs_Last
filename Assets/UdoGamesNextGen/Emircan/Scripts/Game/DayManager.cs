@@ -56,6 +56,8 @@ namespace UdoGames.NextGenDev
             _day.Value++;
             if (_day.Value % 7 == 0)
             {
+                /* Debug.Log("day: " + _day.Value);
+                Debug.Log("kalan: " + _day.Value % 7); */
                 EndWeek();
             }
             else
@@ -72,8 +74,8 @@ namespace UdoGames.NextGenDev
         {
             OnWeekEnd?.Invoke();
             _weeks.Value++;
-            if (CurrencyManager.Instance.Gold < rent * _weeks.Value) IsGameEnd = true;
-            CurrencyManager.Instance.ReduceGold(rent * _weeks.Value, "Rent");
+            if (CurrencyManager.Instance.Gold < rent * (_weeks.Value - 1)) IsGameEnd = true;
+            CurrencyManager.Instance.ReduceGold(rent * (_weeks.Value - 1), "Rent");
             UIManager.Instance.ShowDailyEarnings();
             SaveDays();
             /* UIManager.Instance.ResetUIToStart(); */

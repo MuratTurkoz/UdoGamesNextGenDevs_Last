@@ -85,8 +85,15 @@ public class HealthManager : MonoBehaviour
         UIManager.Instance.ShowYouDiedUI();
     }
 
+    private float _lastDamageAudioTime;
+
     public void GetDamage(float damage)
     {
+        if (Time.time >= _lastDamageAudioTime + 1f)
+        {
+            _lastDamageAudioTime = Time.time;
+            AudioManager.Instance.PlayFishDamage(player.transform.position);
+        }
         DamageIndicatorManager.Instance.ShowDamage(player.transform.position, damage, DamageIndicatorType.PlayerIndicator);
         healthAmount -= damage;
         healthBar.fillAmount = healthAmount / 100f;
@@ -106,6 +113,7 @@ public class HealthManager : MonoBehaviour
             yield return new WaitForSeconds(checkInterval);
             healthAmount -= currentHealthDecreaseRate;
             DamageIndicatorManager.Instance.ShowDamage(player.transform.position + new Vector3(0, 0.5f, 0), (int)currentHealthDecreaseRate, DamageIndicatorType.PlayerIndicator);
+            AudioManager.Instance.PlayStrangle(player.transform.position);
             healthBar.fillAmount = healthAmount / 100f;
 
             if (healthAmount <= 0)

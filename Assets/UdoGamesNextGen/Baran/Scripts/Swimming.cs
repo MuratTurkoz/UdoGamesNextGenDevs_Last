@@ -63,6 +63,7 @@ public class Swimming : MonoBehaviour
 
     public void PlayerDied()
     {
+        fixedJoystick.gameObject.SetActive(false);
         isSwimming = false;
         myAnimator.SetBool("isDied", true);
     }
