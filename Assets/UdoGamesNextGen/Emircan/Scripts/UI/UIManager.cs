@@ -69,6 +69,10 @@ public class UIManager : MonoBehaviour
         _rentTMP.SetText("Rent: " + DayManager.Instance.Rent);
 
         _restartAllGameBtn.onClick.AddListener(RestartAllGame);
+
+        isSwimmed = PlayerPrefs.GetInt("isSwimmedDone", 0) == 1;
+        _diveBtn.gameObject.SetActive(!isSwimmed);
+        _startDayBtn.gameObject.SetActive(isSwimmed);
     }
 
     private void ToggleSound()
@@ -120,6 +124,8 @@ public class UIManager : MonoBehaviour
 
     private void ReturnShop()
     {
+        isSwimmed = true;
+        PlayerPrefs.SetInt("isSwimmedDone", 1);
         AudioManager.Instance.PlayUIButton();
         _oceanPanel.SetActive(false);
         BaseInventory.Instance.SetItemCount();
@@ -174,6 +180,8 @@ public class UIManager : MonoBehaviour
 
     public void ShowDailyEarnings()
     {
+        isSwimmed = false;
+        PlayerPrefs.SetInt("isSwimmedDone", 0);
         _gameStartBtnsParent.SetActive(false);
         if (_dailyChangeRowList.Count > 0)
         {
@@ -204,6 +212,8 @@ public class UIManager : MonoBehaviour
     }
 
     [SerializeField] private TextMeshProUGUI _rentTMP;
+
+    private bool isSwimmed;
 
     private void SkipDailyEarnings()
     {
