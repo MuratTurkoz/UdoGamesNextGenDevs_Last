@@ -145,9 +145,9 @@ GameObject:
   - component: {fileID: 2202094274950927433}
   - component: {fileID: 2902631671835805751}
   - component: {fileID: 1490815614113661796}
-  - component: {fileID: 7618246031557872791}
   - component: {fileID: 2137294928267776091}
   - component: {fileID: 8191319857048874324}
+  - component: {fileID: 5174854521717447508}
   m_Layer: 0
   m_Name: Enemy Shark
   m_TagString: Untagged
@@ -223,27 +223,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7618246031557872791
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6864455671634503288}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.56
-  m_Center: {x: 0, y: 0, z: 0.15}
 --- !u!54 &2137294928267776091
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -286,8 +265,31 @@ MonoBehaviour:
   direction: 1
   enemyMoveSpeed: 2
   enemyDamage: 0
-  yAxis: 1
-  xAxis: 0
+  yAxis: 0
+  xAxis: 1
+--- !u!136 &5174854521717447508
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6864455671634503288}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.26
+  m_Height: 2.09
+  m_Direction: 0
+  m_Center: {x: 0, y: -0.6, z: 0}
 --- !u!1001 &6272478011196960209
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -314,11 +316,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6894073731827345238, guid: 22b1319eabac8cc448983d7df76013e2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.973
+      value: -0.013354485
       objectReference: {fileID: 0}
     - target: {fileID: 6894073731827345238, guid: 22b1319eabac8cc448983d7df76013e2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.349
+      value: -1.5601847
       objectReference: {fileID: 0}
     - target: {fileID: 6894073731827345238, guid: 22b1319eabac8cc448983d7df76013e2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -326,23 +328,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6894073731827345238, guid: 22b1319eabac8cc448983d7df76013e2, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.5
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 6894073731827345238, guid: 22b1319eabac8cc448983d7df76013e2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6894073731827345238, guid: 22b1319eabac8cc448983d7df76013e2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.5
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 6894073731827345238, guid: 22b1319eabac8cc448983d7df76013e2, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6894073731827345238, guid: 22b1319eabac8cc448983d7df76013e2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 270
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6894073731827345238, guid: 22b1319eabac8cc448983d7df76013e2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y

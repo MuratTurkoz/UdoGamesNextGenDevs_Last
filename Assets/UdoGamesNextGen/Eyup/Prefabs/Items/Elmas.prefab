@@ -146,8 +146,8 @@ GameObject:
   - component: {fileID: 1457217559975435576}
   - component: {fileID: 4647560756167527054}
   - component: {fileID: -1797588230426901953}
-  - component: {fileID: 6714527733723524183}
   - component: {fileID: -9060952095733017124}
+  - component: {fileID: -752689829255420999}
   m_Layer: 0
   m_Name: Elmas
   m_TagString: Untagged
@@ -235,28 +235,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemProperty: {fileID: 11400000, guid: 63de6dcf488104549aa1e14141c05b53, type: 2}
   nameText: {fileID: 7465342391086686420}
---- !u!64 &6714527733723524183
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3884320487447675658}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7598546123622179009, guid: ca21c8fa41bdc254294d2549a43e4d65, type: 3}
 --- !u!114 &-9060952095733017124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,6 +253,27 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!135 &-752689829255420999
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3884320487447675658}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.02
+  m_Center: {x: 0.000000013969839, y: -0.002672613, z: 0}
 --- !u!1 &8821423931385587404
 GameObject:
   m_ObjectHideFlags: 0

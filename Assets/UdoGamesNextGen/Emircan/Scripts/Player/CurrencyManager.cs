@@ -41,6 +41,7 @@ namespace UdoGames.NextGenDev
 
         private void Start() {
             GameSceneManager.Instance.OnPlayerEnteredMarket += SaveGold;
+            GameSceneManager.Instance.OnPlayerEnteredOcean += SaveGold;
         }
 
         public List<CurrencyLog> PopCurrencyLogs()

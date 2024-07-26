@@ -907,8 +907,8 @@ MonoBehaviour:
   direction: 1
   enemyMoveSpeed: 2
   enemyDamage: 0
-  yAxis: 0
-  xAxis: 1
+  yAxis: 1
+  xAxis: 0
 --- !u!1 &7511180232019162148
 GameObject:
   m_ObjectHideFlags: 0

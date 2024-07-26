@@ -114,8 +114,8 @@ GameObject:
   - component: {fileID: 4330746765768150084}
   - component: {fileID: 1905487180101673249}
   - component: {fileID: -850189186766564990}
-  - component: {fileID: 3164665744913580854}
   - component: {fileID: -4200590532906240894}
+  - component: {fileID: 439669997193360033}
   m_Layer: 0
   m_Name: Kolye2
   m_TagString: Untagged
@@ -203,28 +203,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemProperty: {fileID: 11400000, guid: 3a7da82d3efa1dd45b8076930382e0b6, type: 2}
   nameText: {fileID: 5068245283302699377}
---- !u!64 &3164665744913580854
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4967060107139657939}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2534964839176971238, guid: 97b0c36ba22d1ac4a98c567134477ab6, type: 3}
 --- !u!114 &-4200590532906240894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +221,27 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!135 &439669997193360033
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4967060107139657939}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.06
+  m_Center: {x: 0.008008947, y: -0.00026519905, z: -0.021490984}
 --- !u!1 &9002797307014066196
 GameObject:
   m_ObjectHideFlags: 0

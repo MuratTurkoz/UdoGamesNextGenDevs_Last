@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4198463737739259013}
   - component: {fileID: 1327639828420180611}
   - component: {fileID: 7056722870410029550}
-  - component: {fileID: 6317828318916637407}
   - component: {fileID: 6741808477516727065}
+  - component: {fileID: 1148765082587102385}
   m_Layer: 0
   m_Name: "\u0130nci"
   m_TagString: Untagged
@@ -101,28 +101,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemProperty: {fileID: 11400000, guid: e72371e540e67f04185023c06b4b812d, type: 2}
   nameText: {fileID: 9212814852854588637}
---- !u!64 &6317828318916637407
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1718916556205813325}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6894428203817054813, guid: f7d66644c29e39c4287bf434878dac91, type: 3}
 --- !u!114 &6741808477516727065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +119,27 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!135 &1148765082587102385
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718916556205813325}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.07
+  m_Center: {x: -0.013919829, y: 0.0009914135, z: 0.016332082}
 --- !u!1 &4347154511383569004
 GameObject:
   m_ObjectHideFlags: 0

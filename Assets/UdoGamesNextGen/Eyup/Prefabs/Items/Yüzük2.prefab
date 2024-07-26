@@ -248,8 +248,8 @@ GameObject:
   - component: {fileID: 4116130408322517963}
   - component: {fileID: 6644504303622562397}
   - component: {fileID: -6568957526819579755}
-  - component: {fileID: 6599480538696618241}
   - component: {fileID: 6460700916226822352}
+  - component: {fileID: -4416782964555229859}
   m_Layer: 0
   m_Name: "Y\xFCz\xFCk2"
   m_TagString: Untagged
@@ -337,28 +337,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemProperty: {fileID: 11400000, guid: 59ad78240f6b9e646a5e160fc6af5e14, type: 2}
   nameText: {fileID: 2166418106691400152}
---- !u!64 &6599480538696618241
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6130936129538109146}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4493585093827132993, guid: 8ff66646b28d56a4994f096ea7c871d4, type: 3}
 --- !u!114 &6460700916226822352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,3 +355,24 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!135 &-4416782964555229859
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6130936129538109146}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.006
+  m_Center: {x: -0.00000010105447, y: 0.000007945589, z: 0.0022738187}

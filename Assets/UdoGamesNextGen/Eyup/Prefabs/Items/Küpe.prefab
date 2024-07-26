@@ -248,8 +248,8 @@ GameObject:
   - component: {fileID: 376515274841003738}
   - component: {fileID: 6978817641846431106}
   - component: {fileID: -3060344912400802296}
-  - component: {fileID: 1280203142050801787}
   - component: {fileID: -3035055919496688287}
+  - component: {fileID: 5555335145032616768}
   m_Layer: 0
   m_Name: "K\xFCpe"
   m_TagString: Untagged
@@ -337,28 +337,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemProperty: {fileID: 11400000, guid: 875265dc302d40940ba51da414996818, type: 2}
   nameText: {fileID: 8790894985473554789}
---- !u!64 &1280203142050801787
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7025373334354429429}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2534964839176971238, guid: 4ebe787aa32810c46af1f2acb38a2ff7, type: 3}
 --- !u!114 &-3035055919496688287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,3 +355,24 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!135 &5555335145032616768
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7025373334354429429}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.006
+  m_Center: {x: 0.00008179491, y: -0.000110808716, z: 0.0015547529}

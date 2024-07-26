@@ -16,6 +16,7 @@ namespace IgnuxNex.SpaceConqueror
         public bool isCompleted;
         public bool isClaimed;
         public bool isLocked;
+        public bool IsFirstAch;
         public Sprite icon;
 
         public int rewardAmount;
@@ -28,11 +29,13 @@ namespace IgnuxNex.SpaceConqueror
         public void LoadProgress()
         {
             achievementProgress.Value = PlayerPrefs.GetInt(AchievementId, 0);
-            if (achievementProgress.Value == 0)
+            isCompleted = PlayerPrefs.GetInt("completed_" + AchievementId, 0) == 1;
+            isClaimed = PlayerPrefs.GetInt("claimed" + AchievementId, 0) == 1;
+            /* if (achievementProgress.Value == 0)
             {
                 isCompleted = false;
                 isClaimed = false;
-            }
+            } */
             AchievementController.Instance.achievementUi.UpdateUnclaimedAchievementCount();
         }
 

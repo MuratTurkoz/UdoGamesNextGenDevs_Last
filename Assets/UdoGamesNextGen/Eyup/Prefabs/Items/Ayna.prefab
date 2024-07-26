@@ -114,8 +114,8 @@ GameObject:
   - component: {fileID: 5895081965834071571}
   - component: {fileID: 2220357615810481667}
   - component: {fileID: 8456985760800796517}
-  - component: {fileID: -6916752573274402715}
   - component: {fileID: -7992301714202923064}
+  - component: {fileID: 4482969907183450372}
   m_Layer: 0
   m_Name: Ayna
   m_TagString: Untagged
@@ -203,28 +203,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemProperty: {fileID: 11400000, guid: 9490d67060f424b43b615b00d7b0d2ee, type: 2}
   nameText: {fileID: 4814958483514337778}
---- !u!64 &-6916752573274402715
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3378191509916593455}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2534964839176971238, guid: c0b654018a61c67458df7465ae291295, type: 3}
 --- !u!114 &-7992301714202923064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +221,27 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!135 &4482969907183450372
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3378191509916593455}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.07
+  m_Center: {x: 0.0005239069, y: -0.00033279578, z: -0.016377008}
 --- !u!1 &6584694124846105670
 GameObject:
   m_ObjectHideFlags: 0
