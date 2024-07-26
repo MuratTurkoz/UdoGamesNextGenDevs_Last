@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: 1905487180101673249}
   - component: {fileID: -850189186766564990}
   - component: {fileID: 3164665744913580854}
+  - component: {fileID: -4200590532906240894}
   m_Layer: 0
   m_Name: Kolye2
   m_TagString: Untagged
@@ -224,6 +225,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: 97b0c36ba22d1ac4a98c567134477ab6, type: 3}
+--- !u!114 &-4200590532906240894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4967060107139657939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793e368844505b643b8ed28bd9141bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.9541284, g: 1, b: 0, a: 1}
+  outlineWidth: 2.5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &9002797307014066196
 GameObject:
   m_ObjectHideFlags: 0

@@ -106,9 +106,17 @@ public class UIManager : MonoBehaviour
         _startDayBtn.gameObject.SetActive(true);
     }
 
+    [SerializeField] private TextMeshProUGUI _backpackItems;
+
+    public void SetBackpackItemCount(int count)
+    {
+        _backpackItems.text = count.ToString();
+    }
+
     private void ReturnShop()
     {
         _oceanPanel.SetActive(false);
+        BaseInventory.Instance.SetItemCount();
         CameraController.Instance.SetCameraTopdown();
         GameSceneManager.Instance.ChangeScene(GameScene.Market);
     }

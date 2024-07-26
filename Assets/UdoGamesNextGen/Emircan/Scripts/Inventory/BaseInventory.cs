@@ -36,6 +36,11 @@ public class BaseInventory : MonoBehaviour
 
     private string savePath;
 
+    public void SetItemCount()
+    {
+        UIManager.Instance.SetBackpackItemCount(_inventoryItems.Count);
+    }
+
     private void Awake()
     {
         Instance = this;
@@ -99,6 +104,8 @@ public class BaseInventory : MonoBehaviour
             }
         }
 
+        SetItemCount();
+
         /* itemCount = _inventoryItems.Count; */
     }
 
@@ -136,6 +143,7 @@ public class BaseInventory : MonoBehaviour
     public virtual void RemoveItem(ItemSO itemSO)
     {
         _inventoryItems.Remove(itemSO);
+        SetItemCount();
         itemCount--;
         /* int amount = Mathf.Max(0, itemSO.collectableProperty.Amount - 1);
         itemSO.collectableProperty.Amount = amount;

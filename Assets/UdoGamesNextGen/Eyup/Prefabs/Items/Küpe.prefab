@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 6978817641846431106}
   - component: {fileID: -3060344912400802296}
   - component: {fileID: 1280203142050801787}
+  - component: {fileID: -3035055919496688287}
   m_Layer: 0
   m_Name: "K\xFCpe"
   m_TagString: Untagged
@@ -358,3 +359,21 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: 4ebe787aa32810c46af1f2acb38a2ff7, type: 3}
+--- !u!114 &-3035055919496688287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7025373334354429429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793e368844505b643b8ed28bd9141bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.9541284, g: 1, b: 0, a: 1}
+  outlineWidth: 2.5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

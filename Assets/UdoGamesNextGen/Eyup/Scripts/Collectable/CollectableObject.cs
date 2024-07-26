@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using IgnuxNex.SpaceConqueror;
 using TMPro;
 using UnityEngine;
 
@@ -40,8 +41,13 @@ public class CollectableObject : MonoBehaviour
             if (BaseInventory.Instance.IsThereAnySpace())
             {
                 BaseInventory.Instance.AddItem(itemProperty.itemSO);
+                LogManager.Instance.ShowMessage(itemProperty.itemSO.ItemName + " is collected!");
                 OnCollected?.Invoke(gameObject);
                 itemProperty.isCollected = true;
+            }
+            else
+            {
+                LogManager.Instance.ShowMessage("Backpack is full!");
             }
         }
     }

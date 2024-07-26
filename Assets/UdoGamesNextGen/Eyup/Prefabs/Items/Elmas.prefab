@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 4647560756167527054}
   - component: {fileID: -1797588230426901953}
   - component: {fileID: 6714527733723524183}
+  - component: {fileID: -9060952095733017124}
   m_Layer: 0
   m_Name: Elmas
   m_TagString: Untagged
@@ -256,6 +257,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7598546123622179009, guid: ca21c8fa41bdc254294d2549a43e4d65, type: 3}
+--- !u!114 &-9060952095733017124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3884320487447675658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793e368844505b643b8ed28bd9141bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.9541284, g: 1, b: 0, a: 1}
+  outlineWidth: 2.5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &8821423931385587404
 GameObject:
   m_ObjectHideFlags: 0
