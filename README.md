@@ -77,28 +77,62 @@ In the environmental design part, we asked our artist friends to design these ob
 
 
 ## Upgrades
-* Oksijen Geliştirmesi:
-  * Level 1: 500g -> +10sn oksijen
-  * Level 2: 2000g -> +15sn oksijen
-  * Level 3: 4500g -> +20sn oksijen
-  * Level 4: 10000g -> +25sn oksijen
 
+<img src="Readme images/image1.png">
+
+* Oxygen Upgrade
+  * Level 1: 500g -> +10sec Oxygen
+  * Level 2: 2000g -> +15sec Oxygen
+  * Level 3: 4500g -> +20sec Oxygen
+  * Level 4: 10000g -> +25sec Oxygen
+  
+<img src="Readme images/image.png">
+
+* Bag Upgrade:
+  * Level 1: 1000g -> +1 Capacity
+  * Level 2: 2500g -> +1 Capacity
+  * Level 3: 5000g -> +2 Capacity
+  * Level 4: 10000g -> +3 Capacity
+  
+<img src="Readme images/image12.png">
+
+* Swimfin Upgrade:
+  * Level 1: 1500g -> +0.5 Speed
+  * Level 2: 3500g -> +0.5 Speed
+  * Level 3: 6000g -> +1 Speed
+  * Level 4: 10000g -> +1 Speed
+  
+* New Territory:
+  * Section 2: 5000g
 
 ## Mechanics
+Our game features two main mechanics. The first is diving to find valuable items, and the second is trading these items. The game will start on the main screen in our shop, and through the necessary UIs, players will be able to choose to dive and start trading by taking in customers.
 
+<img src="Readme images/mekanik.png">
+<img src="Readme images/mekanik2.jpg">
 
+### Diving and Item Finding
 
-#### Core Game Loop:
+To be able to sell items, we first need to possess them. Our character dives to find these items and encounters some obstacles underwater. Some of these obstacles are aggressive sea creatures, while others are problems arising from the inadequacy of our equipment.
 
+Oxygen: A resource that allows us to breathe underwater for a certain period. The capacity of our tank can be increased by leveling up or purchasing new tanks. If our oxygen runs out, we start to lose health gradually.
 
-#### Basic Definition of Main Mechanic: 
+Health: If our health drops to zero, the day restarts, and we lose our progress.
 
+Items: Valuable things that can be collected underwater and sold. Each has an approximate market value, and the trading mechanic works based on this value.
 
-#### Game Object and Attributes: 
+Aggressive Fauna: Some underwater creatures are aggressive and can attack us, causing us to lose health/oxygen.
 
+### Trading:
 
+This is the process we use to sell the items we find from the sea and earn money. As long as we have items in our inventory and have completed our daily item hunt, we can open our shop to customers. These items will have an estimated price, and by negotiating against the customer's offer, we will try to increase the profit we can make.
 
-#### Character Upgrades
+Customers: NPCs who will buy our items. They will make an offer close to the approximate price of the item and want to buy one of the items in our inventory.
 
+Offer: If the price is increased reasonably and not excessively, customers will be likely to accept this new offer. However, if your new offer is far from the item's price, customers may get angry and leave the shop without making a purchase. In some offers, you might even lose money.
 
+---
 
+### Core Game Loop:
+
+The game will progress in days, and these days will have a specific cycle. At the beginning of the day, diving will be done to find valuable items, and the rest of the day will be spent selling these items in our shop. Additionally, through the shop, the player can purchase better equipment for themselves, allowing them to dive deeper and find more valuable items. This way, the player can earn more profit and invest more in themselves.
