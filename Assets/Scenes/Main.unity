@@ -8206,10 +8206,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Base UI
       objectReference: {fileID: 0}
-    - target: {fileID: 5638148955546262711, guid: 4ce3fd46f9139af4f9a8ec980ee0cb80, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6965070700806546210, guid: 4ce3fd46f9139af4f9a8ec980ee0cb80, type: 3}
       propertyPath: _dealStandingTransform
       value: 
