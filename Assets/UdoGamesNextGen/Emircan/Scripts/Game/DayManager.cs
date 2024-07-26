@@ -12,6 +12,8 @@ namespace UdoGames.NextGenDev
         [SerializeField] private Int _day;
         [SerializeField] private Int _weeks;
 
+        public bool IsGameEnd;
+
         private const string DAY_SAVE_KEY = "daySave";
         private const string WEEK_SAVE_KEY = "weekSave";
 
@@ -54,12 +56,16 @@ namespace UdoGames.NextGenDev
             _day.Value++;
             if (_day.Value % 7 == 0)
             {
+                /* Debug.Log("day: " + _day.Value);
+                Debug.Log("kalan: " + _day.Value % 7); */
                 EndWeek();
             }
             else
             {
                 UIManager.Instance.ShowDailyEarnings();
                 SaveDays();
+                BaseInventory.Instance.Save();
+                CurrencyManager.Instance.SaveGold();
                 /* UIManager.Instance.ResetUIToStart(); */
             }
         }
@@ -70,9 +76,12 @@ namespace UdoGames.NextGenDev
         {
             OnWeekEnd?.Invoke();
             _weeks.Value++;
-            CurrencyManager.Instance.ReduceGold(rent * _weeks.Value, "Rent");
+            if (CurrencyManager.Instance.Gold < rent * (_weeks.Value - 1)) IsGameEnd = true;
+            CurrencyManager.Instance.ReduceGold(rent * (_weeks.Value - 1), "Rent");
             UIManager.Instance.ShowDailyEarnings();
             SaveDays();
+            BaseInventory.Instance.Save();
+            CurrencyManager.Instance.SaveGold();
             /* UIManager.Instance.ResetUIToStart(); */
         }
     }

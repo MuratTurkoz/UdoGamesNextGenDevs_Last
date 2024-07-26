@@ -9,7 +9,8 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager instance;
     private void Awake()
     {
-        if (instance == null)
+        instance = this;
+        /* if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
@@ -17,7 +18,7 @@ public class InventoryManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }
+        } */
     }
     [SerializeField] public List<ItemInventory> itemInventoriesList;
     public Queue<ItemInventory> itemInventories = new Queue<ItemInventory>();

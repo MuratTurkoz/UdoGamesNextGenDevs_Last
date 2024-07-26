@@ -4,6 +4,23 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager Instance { get; private set;}
+
+    private void Awake() {
+        if (Instance != null)
+        {
+            if (Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
     public AudioClip shopBell;
     public AudioClip UIButton;
     public AudioClip collectSound;
@@ -14,25 +31,25 @@ public class AudioManager : MonoBehaviour
 
 
    public void PlayShopBell(){
-    AudioSource.PlayClipAtPoint(shopBell, Camera.main.transform.position);
+    AudioSource.PlayClipAtPoint(shopBell, FindObjectOfType<Camera>().transform.position);
    }
    public void PlayUIButton(){
-    AudioSource.PlayClipAtPoint(UIButton, Camera.main.transform.position);
+    AudioSource.PlayClipAtPoint(UIButton, FindObjectOfType<Camera>().transform.position);
    }
-   public void PlayCollectSound(){
-    AudioSource.PlayClipAtPoint(collectSound, Camera.main.transform.position);
+   public void PlayCollectSound(Vector3 pos){
+    AudioSource.PlayClipAtPoint(collectSound, pos);
    }
    public void PlayCoinSound(){
-    AudioSource.PlayClipAtPoint(coinSound, Camera.main.transform.position);
+    AudioSource.PlayClipAtPoint(coinSound, FindObjectOfType<Camera>().transform.position);
    }
-   public void PlayCollectSoundAlt(){
-    AudioSource.PlayClipAtPoint(collectSoundAlt, Camera.main.transform.position);
+   public void PlayCollectSoundAlt(Vector3 pos){
+    AudioSource.PlayClipAtPoint(collectSoundAlt, pos);
    }
-   public void PlayFishDamage(){
-    AudioSource.PlayClipAtPoint(fishDamage, Camera.main.transform.position);
+   public void PlayFishDamage(Vector3 pos){
+    AudioSource.PlayClipAtPoint(fishDamage, pos);
    }
-   public void PlayStrangle(){
-    AudioSource.PlayClipAtPoint(strangle, Camera.main.transform.position);
+   public void PlayStrangle(Vector3 pos){
+    AudioSource.PlayClipAtPoint(strangle, pos);
    }
    
 }

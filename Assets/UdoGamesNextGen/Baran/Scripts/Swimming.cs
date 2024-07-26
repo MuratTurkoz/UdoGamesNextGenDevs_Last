@@ -23,15 +23,15 @@ public class Swimming : MonoBehaviour
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody>();
-        ResetPosition();
-    }
-
-    private void OnEnable() {
-        if (GameSceneManager.Instance)
-            GameSceneManager.Instance.OnPlayerEnteredOcean += ResetPosition;
+/*         ResetPosition(); */
+        GameSceneManager.Instance.OnPlayerEnteredOcean += ResetPosition;
     }
 
     private void OnDisable() {
+        fixedJoystick.gameObject.SetActive(false);
+    }
+
+    private void OnDestroy() {
         if (GameSceneManager.Instance)
             GameSceneManager.Instance.OnPlayerEnteredOcean -= ResetPosition;
     }
@@ -39,6 +39,7 @@ public class Swimming : MonoBehaviour
     private void ResetPosition()
     {
         if (!StartTransform) return;
+        fixedJoystick.gameObject.SetActive(true);
         this.transform.tag = "Player";
         transform.position = StartTransform.position;
         transform.eulerAngles = StartTransform.eulerAngles;
@@ -62,6 +63,7 @@ public class Swimming : MonoBehaviour
 
     public void PlayerDied()
     {
+        fixedJoystick.gameObject.SetActive(false);
         isSwimming = false;
         myAnimator.SetBool("isDied", true);
     }

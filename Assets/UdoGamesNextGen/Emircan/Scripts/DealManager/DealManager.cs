@@ -37,30 +37,76 @@ namespace UdoGames.NextGenDev
         private Customer _currentCustomer;
         private ItemSO _currentItem;
 
-        private void Awake()
+        private bool _isHoldingUpper;
+    private bool _isHoldingLower;
+
+    private float _holdDelay = 0.2f; // Delay between each change when holding button
+    private float _holdTimer;
+
+    [SerializeField] private ClickAndHoldButton _upperBtn;
+    [SerializeField] private ClickAndHoldButton _lowerBtn;
+
+    private void Awake()
+    {
+        Instance = this;
+        _acceptOfferBtn.onClick.AddListener(AcceptOffer);
+        _rejectOfferBtn.onClick.AddListener(RejectOfferEndDeal);
+        _newOfferBtn.onClick.AddListener(GiveNewOffer);
+        
+        _upperDealBtn.onClick.AddListener(UpperDeal);
+        _lowerDealBtn.onClick.AddListener(LowerDeal);
+
+        // Add listeners for button press and release
+        /* _upperDealBtn.onPointerDown.AddListener((data) => { _isHoldingUpper = true; });
+        _upperDealBtn.onPointerUp.AddListener((data) => { _isHoldingUpper = false; });
+        _lowerDealBtn.onPointerDown.AddListener((data) => { _isHoldingLower = true; });
+        _lowerDealBtn.onPointerUp.AddListener((data) => { _isHoldingLower = false; }); */
+
+        _inventory = FindObjectOfType<BaseInventory>();
+    }
+
+    private void Update()
+    {
+        if (_upperBtn.IsHeldDown || _lowerBtn.IsHeldDown)
         {
-            Instance = this;
-            _acceptOfferBtn.onClick.AddListener(AcceptOffer);
-            _rejectOfferBtn.onClick.AddListener(RejectOfferEndDeal);
-            _newOfferBtn.onClick.AddListener(GiveNewOffer);
-            _upperDealBtn.onClick.AddListener(UpperDeal);
-            _lowerDealBtn.onClick.AddListener(LowerDeal);
-            _inventory = FindObjectOfType<BaseInventory>();
+            _holdTimer -= Time.deltaTime;
+
+            if (_holdTimer <= 0f)
+            {
+                _holdTimer = _holdDelay;
+
+                if (_upperBtn.IsHeldDown)
+                {
+                    ChangeDeal(1);
+                }
+
+                if (_lowerBtn.IsHeldDown)
+                {
+                    ChangeDeal(-1);
+                }
+            }
         }
+        else
+        {
+            _holdTimer = 0f;
+        }
+    }
 
         private void LowerDeal()
         {
+            AudioManager.Instance.PlayUIButton();
             ChangeDeal(-1);
         }
 
         private void UpperDeal()
         {
+            AudioManager.Instance.PlayUIButton();
             ChangeDeal(1);
         }
 
         private void ChangeDeal(int amount)
         {
-            _playerOffer += amount;
+            _playerOffer = Mathf.Max(1, _playerOffer + amount);
             _playerDealTMP.SetText(NumberConverter.ConvertToString(_playerOffer));
         }
 
@@ -145,6 +191,7 @@ namespace UdoGames.NextGenDev
 
         private void AcceptOffer()
         {
+            AudioManager.Instance.PlayUIButton();
             _customerOfferTMP.gameObject.SetActive(false);
             CurrencyManager.Instance.AddGold(_customerOffer, "Sell " + _currentItem.name);
             _inventory.RemoveItem(_currentItem);
@@ -182,6 +229,7 @@ namespace UdoGames.NextGenDev
 
         private void GiveNewOffer()
         {
+            AudioManager.Instance.PlayUIButton();
             CloseDealOptions();
             CloseNewOffer();
             _currentCustomer.GiveOffer(_playerOffer, _dealPhase);
@@ -202,6 +250,7 @@ namespace UdoGames.NextGenDev
 
         private void RejectOfferEndDeal()
         {
+            AudioManager.Instance.PlayUIButton();
             _customerOfferTMP.gameObject.SetActive(false);
             _currentCustomer.OnRejected();
         }

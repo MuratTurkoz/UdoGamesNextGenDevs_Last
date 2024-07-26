@@ -67,6 +67,8 @@ public class UIManager : MonoBehaviour
         _resetDayBtn.onClick.AddListener(ResetStartDay);
 
         _rentTMP.SetText("Rent: " + DayManager.Instance.Rent);
+
+        _restartAllGameBtn.onClick.AddListener(RestartAllGame);
     }
 
     private void ToggleSound()
@@ -75,20 +77,24 @@ public class UIManager : MonoBehaviour
         AudioListener.volume = isOn ? 0 : 1;
         PlayerPrefs.SetInt("soundIsOn", (int)AudioListener.volume);
         _soundBtnImage.sprite = isOn ? _soundOff : _soundOn;
+        AudioManager.Instance.PlayUIButton();
     }
 
     private void ToggleSettings()
     {
+        AudioManager.Instance.PlayUIButton();
         _settingsPanel.SetActive(!_settingsPanel.activeSelf);
     }
 
     private void CloseUpgradePanel()
     {
+        AudioManager.Instance.PlayUIButton();
         _upgradePanel.SetActive(false);
     }
 
     private void StartDive()
     {
+        AudioManager.Instance.PlayUIButton();
         _returnShopBtn.gameObject.SetActive(false);
         _generalPanel.SetActive(false);
         _diveBtn.gameObject.SetActive(false);
@@ -100,24 +106,36 @@ public class UIManager : MonoBehaviour
     private void OnMarketOpened()
     {
         _generalPanel.SetActive(true);
+        AudioManager.Instance.PlayShopBell();
         _playerShopPanel.SetActive(true);
         _startDayBtn.gameObject.SetActive(true);
     }
 
+    [SerializeField] private TextMeshProUGUI _backpackItems;
+
+    public void SetBackpackItemCount(int count)
+    {
+        _backpackItems.text = count.ToString();
+    }
+
     private void ReturnShop()
     {
+        AudioManager.Instance.PlayUIButton();
         _oceanPanel.SetActive(false);
+        BaseInventory.Instance.SetItemCount();
         CameraController.Instance.SetCameraTopdown();
         GameSceneManager.Instance.ChangeScene(GameScene.Market);
     }
 
     private void ShowUpgradePanel()
     {
+        AudioManager.Instance.PlayUIButton();
         _upgradePanel.SetActive(true);
     }
 
     private void StartSellPhase()
     {
+        AudioManager.Instance.PlayUIButton();
         _startDayBtn.gameObject.SetActive(false);
         _gameStartBtnsParent.SetActive(false);
         DayManager.Instance.StartSellPhase();
@@ -137,6 +155,7 @@ public class UIManager : MonoBehaviour
 
     private void EndDay()
     {
+        AudioManager.Instance.PlayUIButton();
         _endDayBtn.gameObject.SetActive(false);
         /* ShowDailyEarnings(); */
         DayManager.Instance.EndDay();
@@ -179,6 +198,7 @@ public class UIManager : MonoBehaviour
 
     private void RestartAllGame()
     {
+        AudioManager.Instance.PlayUIButton();
         PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -187,9 +207,10 @@ public class UIManager : MonoBehaviour
 
     private void SkipDailyEarnings()
     {
+        AudioManager.Instance.PlayUIButton();
         _dailyEarningsPanel.SetActive(false);
 
-        if (CurrencyManager.Instance.Gold >= 0)
+        if (!DayManager.Instance.IsGameEnd)
         {
             ResetUIToStart();
         }
@@ -226,6 +247,7 @@ public class UIManager : MonoBehaviour
 
     private void ResetStartDay()
     {
+        AudioManager.Instance.PlayUIButton();
         _youDiedPanel.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

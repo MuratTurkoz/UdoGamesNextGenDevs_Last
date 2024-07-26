@@ -22,11 +22,16 @@ public class UpgradeNewAreaSO : UpgradeBaseSO
         {
             AreaManager.Instance.AreaLocks[i].SetActive(i > (level - 2));
         }
+        if (level == 2)
+        {
+            AreaManager.Instance.UpgradeArea();
+        }
     }
 
     public override void Upgrade()
     {
         level++;
         AreaManager.Instance.AreaLocks[level - 2].SetActive(false);
+        AreaManager.Instance.UpgradeArea();
     }
 }
