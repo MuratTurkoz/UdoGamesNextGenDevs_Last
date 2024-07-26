@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c217559ad94dccb240fbc04c7e851f, type: 3}
+  m_Name: Traveller1
+  m_EditorClassIdentifier: 
+  achievementName: Traveller I
+  description: 'Travel 1km '
+  achievementProgress: {fileID: 11400000, guid: 089d9329e632b0749b0401bc4fcf95a7, type: 2}
+  neededAmount: 1000
+  isCompleted: 0
+  isClaimed: 0
+  isLocked: 0
+  icon: {fileID: 21300000, guid: 7f92306aeb32dc84fa66771108cf89e3, type: 3}
+  rewardAmount: 1000
+  nextAchievements:
+  - {fileID: 11400000, guid: efc1ac3a745c06d4eac796f5e2d05ab2, type: 2}
