@@ -16,13 +16,19 @@ namespace IgnuxNex.SpaceConqueror
         [SerializeField] private Image slider;
         [SerializeField] private Button rewardButton;
         [SerializeField] private Image lockedImage;
+        private Achievement achievement;
 
         public string Id = "-1";
 
         [SerializeField] private TextMeshProUGUI reward;
 
+        private void OnEnable() {
+            if (achievement) SetAchievement(achievement);
+        }
+
         public void SetAchievement(Achievement achievement)
         {
+            this.achievement = achievement;
             sprite.sprite = achievement.icon;
             achievementName.text = achievement.achievementName;
             description.text = achievement.description;
