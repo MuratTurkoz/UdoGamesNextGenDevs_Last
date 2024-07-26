@@ -39,6 +39,10 @@ namespace UdoGames.NextGenDev
             LoadGold();
         }
 
+        private void Start() {
+            GameSceneManager.Instance.OnPlayerEnteredMarket += SaveGold;
+        }
+
         public List<CurrencyLog> PopCurrencyLogs()
         {
             var logs = new List<CurrencyLog>(_currencyLogs);
@@ -51,7 +55,7 @@ namespace UdoGames.NextGenDev
             _currentGold.Value = PlayerPrefs.GetInt(GOLD_SAVE_KEY, 0);
         }
 
-        private void SaveGold()
+        public void SaveGold()
         {
             PlayerPrefs.SetInt(GOLD_SAVE_KEY, _currentGold.Value);
         }
@@ -69,7 +73,7 @@ namespace UdoGames.NextGenDev
         private void UpdateMoney()
         {
             _currentGold.Value += deltaMoney;
-            SaveGold();
+            /* SaveGold(); */
         }
 
         public void ReduceGold(int delta, string log)
@@ -77,7 +81,7 @@ namespace UdoGames.NextGenDev
             _currencyLogs.Add(new CurrencyLog(log, -delta));
             _currentGold.Value -= delta;
             _currentGold.Value = Mathf.Max(0, _currentGold.Value);
-            SaveGold();
+            /* SaveGold(); */
         }
     }
 }

@@ -15,11 +15,11 @@ public class SpawnManager : MonoBehaviour
     public LayerMask obstacleLayer;       // Engellerin bulunduğu katman
 
     private List<GameObject> collectibles = new List<GameObject>();
-    int areaCounter = 0;
+    public int areaCounter = 0;
     private void Awake()
     {
-        areaObjects.Add(allAreaObjects[areaCounter]);
-        areaObjects[areaCounter++].GetComponent<BoxCollider>().isTrigger = true;
+        areaObjects.Add(allAreaObjects[0]);
+        areaObjects[areaObjects.Count - 1].GetComponent<BoxCollider>().isTrigger = true;
         /* for (int i = 0; i < initialSpawnCount; i++)
         {
             SpawnCollectible();
@@ -88,13 +88,13 @@ public class SpawnManager : MonoBehaviour
 
     public void AddArea()
     {
-
+        areaCounter++;
         foreach (var item in collectiblePrefab_L2)
         {
             collectiblePrefab_L1.Add(item);
         }
-        areaObjects.Add(allAreaObjects[areaCounter]);
-        areaObjects[areaCounter++].GetComponent<BoxCollider>().isTrigger = true;
+        areaObjects.Add(allAreaObjects[1]);
+        areaObjects[areaObjects.Count - 1].GetComponent<BoxCollider>().isTrigger = true;
         for (int i = 0; i < initialSpawnCount; i++)
         {
             SpawnCollectible();

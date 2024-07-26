@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Water
   - Obstackle
+  - New tag
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Obstacle
   - 
   - 
   - 

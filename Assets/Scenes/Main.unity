@@ -2090,7 +2090,8 @@ MonoBehaviour:
   - {fileID: 1854042189}
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
+  areaCounter: 0
 --- !u!4 &339290929
 Transform:
   m_ObjectHideFlags: 0
@@ -13078,6 +13079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d154a72ab71f6fa45b96351c585faac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnManager: {fileID: 339290928}
   AreaLocks:
   - {fileID: 9908765}
 --- !u!4 &2134929243

@@ -122,7 +122,7 @@ public class BaseInventory : MonoBehaviour
         /* itemCount = _inventoryItems.Count; */
     }
 
-    private void Save()
+    public void Save()
     {
         InventoryData data = new InventoryData();
         data.items = _inventoryItems.Select(item => new SerializableItem(item)).ToList();

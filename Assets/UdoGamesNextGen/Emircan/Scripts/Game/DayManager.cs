@@ -64,6 +64,8 @@ namespace UdoGames.NextGenDev
             {
                 UIManager.Instance.ShowDailyEarnings();
                 SaveDays();
+                BaseInventory.Instance.Save();
+                CurrencyManager.Instance.SaveGold();
                 /* UIManager.Instance.ResetUIToStart(); */
             }
         }
@@ -78,6 +80,8 @@ namespace UdoGames.NextGenDev
             CurrencyManager.Instance.ReduceGold(rent * (_weeks.Value - 1), "Rent");
             UIManager.Instance.ShowDailyEarnings();
             SaveDays();
+            BaseInventory.Instance.Save();
+            CurrencyManager.Instance.SaveGold();
             /* UIManager.Instance.ResetUIToStart(); */
         }
     }
