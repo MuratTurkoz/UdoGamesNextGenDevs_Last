@@ -19,6 +19,7 @@ MonoBehaviour:
   isCompleted: 0
   isClaimed: 0
   isLocked: 0
+  IsFirstAch: 1
   icon: {fileID: 21300000, guid: 7f92306aeb32dc84fa66771108cf89e3, type: 3}
   rewardAmount: 1000
   nextAchievements:

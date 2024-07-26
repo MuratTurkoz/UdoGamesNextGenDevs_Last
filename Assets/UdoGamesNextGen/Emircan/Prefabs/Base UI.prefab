@@ -6677,7 +6677,6 @@ RectTransform:
   - {fileID: 8623969703667738464}
   - {fileID: 3390832606783518484}
   - {fileID: 5623385950127249361}
-  - {fileID: 6141110996232257401}
   - {fileID: 81003634654232517}
   m_Father: {fileID: 2847720657797412435}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7769,6 +7768,7 @@ RectTransform:
   - {fileID: 6300562843854296135}
   - {fileID: 9103029775877484103}
   - {fileID: 8814618101127485490}
+  - {fileID: 6141110996232257401}
   - {fileID: 1580199309270440321}
   - {fileID: 4005580855091997135}
   - {fileID: 6872999439259092798}
@@ -7870,6 +7870,7 @@ MonoBehaviour:
   _closeDailyEarningsBtn: {fileID: 122671366227852885}
   _closeUpgradePanelBtn: {fileID: 1232141672174059450}
   _settingsBtn: {fileID: 6344031053895914098}
+  _achievementPanel: {fileID: 3419442701887941054}
   _backpackItems: {fileID: 6066600332240087049}
   _settingsPanel: {fileID: 7851847495768340294}
   _toggleSoundBtn: {fileID: 1809673858940762543}
@@ -10583,7 +10584,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8814618101127485490}
+    m_TransformParent: {fileID: 2847720657797412435}
     m_Modifications:
     - target: {fileID: 2528499409072383035, guid: dc3639ae025aa2e49a1a337e8303d710, type: 3}
       propertyPath: m_Name
@@ -10682,6 +10683,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc3639ae025aa2e49a1a337e8303d710, type: 3}
+--- !u!1 &3419442701887941054 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2962095329228790307, guid: dc3639ae025aa2e49a1a337e8303d710, type: 3}
+  m_PrefabInstance: {fileID: 463649790489768861}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6141110996232257401 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6005177287706184932, guid: dc3639ae025aa2e49a1a337e8303d710, type: 3}

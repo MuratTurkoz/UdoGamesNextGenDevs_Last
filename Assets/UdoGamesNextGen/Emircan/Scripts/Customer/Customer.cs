@@ -50,7 +50,7 @@ namespace UdoGames.NextGenDev
             float priceMultiplier = Random.Range(0.9f, 1.1f);
             customerOffer = (int)(estimatedPrice * priceMultiplier);
             string randomSentence = _firstCentences[Random.Range(0, _firstCentences.Length)];
-            randomSentence = randomSentence.Replace("yyy", "$"+ customerOffer.ToString() + "$");
+            randomSentence = randomSentence.Replace("yyy", "$"+ customerOffer.ToString());
             DealManager.Instance.SetCustomerDialogTMP(randomSentence);
             return customerOffer;
         }
@@ -92,7 +92,7 @@ namespace UdoGames.NextGenDev
                         int customerNewOffer = (int)(estimatedPrice * 1.1f);
                         string randomSentence = _angryOfferSentences[Random.Range(0, _angryOfferSentences.Length)];
                         randomSentence = randomSentence.Replace("x$", "$"+ customerNewOffer.ToString() );
-                        DealManager.Instance.SetCustomerDialogTMP("Bu abartı oldu, peki bu kadara ne dersin?");
+                        DealManager.Instance.SetCustomerDialogTMP(randomSentence);
                         DealManager.Instance.CustomerOffers(customerNewOffer);
                     }
                     else if (randomness <= 4)

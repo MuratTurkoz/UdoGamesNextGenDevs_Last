@@ -9,7 +9,7 @@ public class Detector : MonoBehaviour
        if(other.gameObject.tag == "Obstackle"){
         if(enemyObject.GetComponent<EnemySwimming>().yAxis){
         enemyObject.GetComponent<EnemySwimming>().direction *= -1;
-        enemyObject.transform.localScale = new Vector3(1,enemyObject.GetComponent<EnemySwimming>().direction, 1);
+        /* enemyObject.transform.localScale = new Vector3(1,enemyObject.GetComponent<EnemySwimming>().direction, 1); */
         }
         else if(enemyObject.GetComponent<EnemySwimming>().xAxis){
         enemyObject.GetComponent<EnemySwimming>().direction *= -1;

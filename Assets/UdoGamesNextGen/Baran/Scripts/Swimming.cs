@@ -124,7 +124,8 @@ public class Swimming : MonoBehaviour
             // Apply movement
             myRigidBody.velocity = Vector3.Lerp(myRigidBody.velocity, targetVelocity, Time.deltaTime * 2.5f);
             Vector3 endPosition = transform.position;
-            totalDistanceMoved += Vector3.Distance(startPosition, endPosition);
+            /* totalDistanceMoved += Vector3.Distance(startPosition, endPosition); */
+            totalDistanceMoved += (targetVelocity.magnitude * Time.deltaTime);
             int emircan = Mathf.CeilToInt(totalDistanceMoved);
             if (emircan == 0) return;
             AchievementController.Instance.CalculateTravellerAchievement(emircan);

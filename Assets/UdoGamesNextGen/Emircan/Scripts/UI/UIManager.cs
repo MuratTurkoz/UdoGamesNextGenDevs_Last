@@ -27,6 +27,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button _closeUpgradePanelBtn;
     [SerializeField] private Button _settingsBtn;
 
+    [SerializeField] private GameObject _achievementPanel;
+
     private void Awake() {
         Instance = this;
         _dailyChangeRowList = new List<DailyChangeRow>();
@@ -98,6 +100,7 @@ public class UIManager : MonoBehaviour
 
     private void StartDive()
     {
+        _achievementPanel.SetActive(false);
         AudioManager.Instance.PlayUIButton();
         _returnShopBtn.gameObject.SetActive(false);
         _generalPanel.SetActive(false);
@@ -124,6 +127,7 @@ public class UIManager : MonoBehaviour
 
     private void ReturnShop()
     {
+        _achievementPanel.SetActive(true);
         isSwimmed = true;
         PlayerPrefs.SetInt("isSwimmedDone", 1);
         AudioManager.Instance.PlayUIButton();

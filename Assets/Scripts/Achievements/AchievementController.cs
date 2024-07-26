@@ -23,6 +23,7 @@ namespace IgnuxNex.SpaceConqueror
         public void ClaimReward(Achievement achievement)
         {
             CurrencyManager.Instance.AddGold(achievement.rewardAmount, "Achievement " + achievement.achievementName + " reward.");
+            PlayerPrefs.SetInt("claimed" + achievement.AchievementId, 1);
         }
 
         public void CalculateCollectedAchievement(int itemCount)
@@ -40,6 +41,18 @@ namespace IgnuxNex.SpaceConqueror
         {
             foreach (var ach in achievements)
             {
+                if (PlayerPrefs.GetInt("isUnlocked" + ach.AchievementId, 0) == 1)
+                {
+                    ach.isLocked = false;
+                }
+                else if (ach.IsFirstAch)
+                {
+                    ach.isLocked = false;
+                }
+                else
+                {
+                    ach.isLocked = true;
+                }
                 if (ach.isLocked) continue;
                     
                 ach.achievementProgress.OnValueChanged += ach.AddProgress;
@@ -49,6 +62,7 @@ namespace IgnuxNex.SpaceConqueror
 
         public void SetNextAchievement(Achievement ach)
         {
+            PlayerPrefs.SetInt("isUnlocked" + ach.AchievementId, 1);
             ach.achievementProgress.OnValueChanged += ach.AddProgress;
             ach.achievementProgress.Value = 0;
             ach.LoadProgress();
